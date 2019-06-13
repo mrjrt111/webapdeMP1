@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <style>
+
+          body{
+                background-color: #fff;
+                font-family: Open Sans;
+                background: #4086b6;
+                margin: 0;
+                padding: 0;
+                color:black;
+                
+            }
+
+            #headerDiv{
+                position: relative;
+                background-image: linear-gradient(to top,#b41e3b ,#a01832 );
+                background-color:#4086b6;
+                color:white;
+                font-weight: normal; 
+                height: 50px;
+                margin: 0px;
+                box-shadow: 1px 0px 5px black;
+            }
+
+            #logo{
+               padding-top: 5px;
+                padding-left: 20;
+                
+            }
+
+            #navigationList{
+                list-style-type: none;
+                 margin: 0;
+                 padding: 0;
+                 text-decoration: none;
+                
+            }
+            li{
+                display: inline;
+                padding: 8px 16px;
+                text-decoration: none;
+            
+            }
+
+            .navSelect:hover{
+                background-color: #851a2e;
+                 color: white;
+                 height: 200px;
+                
+            }
+            #navigationBar{
+                float: right;
+                padding-right: 50px;
+                padding-top:13px;
+                height: 200px;
+            
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            #usernameLi{
+                font-weight: bolder;
+                
+            }
+        </style>
+        <title>KrabbyStats - Dashboard</title>
+        <link rel="icon" type="image/ico" href="thumbnail.png" />
+        <body>
+                <div id = "headerDiv">
+                        <img src ="Logo.png" id = "logo">
+                <div id = "navigationBar">
+                        <ul id = navigationList>
+                                <li class = "navSelect"><a href = "Dashboard.html">Dashboard</a></li>
+                                <li class = "navSelect"><a href = "Dashboard.html">Upload Data</a></li>
+                                <li class = "navSelect"><a href = "Dashboard.html">View Data</a></li>
+                                <li id = "usernameLi">Username</li>
+                                <li class = "navSelect"><a href = "Dashboard.html">Logout</a></li>
+                              </ul>
+                </div>        
+                        
+                    
+                    </div>
+
+        </body>
+    </head>
+</html>
