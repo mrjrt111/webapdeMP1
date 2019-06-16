@@ -64,6 +64,34 @@
                 font-weight: bolder;
                 
             }
+
+            #orderListDiv{
+                position:fixed;
+                background-color: whitesmoke;
+                width: 25%;
+                
+            }
+
+            #customerListDiv{
+                text-align:justify; 
+                overflow-y: scroll;
+
+            }
+            #customerCounterHeadDiv{
+                color: #b41e3b;
+                text-align: center;
+                border:0.5px solid #E8EAED;
+                border-radius: 4px 4px 0px 0px;
+                
+            }
+
+            .idNumDiv{
+                font-weight: bold;
+            }
+            #customerListDiv{
+                color: #060606;
+            }
+            
         </style>
         <title>KrabbyStats - Dashboard</title>
         <link rel="icon" type="image/ico" href="thumbnail.png" />
@@ -81,7 +109,26 @@
                 </div>        
                         
                     
-                    </div>
+                </div>
+
+                <div id = "orderListDiv">
+                    <div id = "customerCounterHeadDiv">
+                        <b>Customer Counter</b>
+                        <br><div id = "dateHeader">As of June 14,2019</div>
+                    </div> 
+                    <div id = "customerListDiv">
+                    <ul>
+                        <li>
+                            <div class = "idNumDiv">ORDER NO: 0001 </div>
+                            <div class = "customerDiv">Fish: StarFish</div>
+                            <div class = "burgerDiv">Burger: Krabby Patty</div>
+                        </li>
+                    </ul>
+                    
+                    </div>   
+                
+
+                </div>
 
         </body>
     </head>
