@@ -1,0 +1,268 @@
+<html>
+<head>
+    <title>KrabbyStats</title>
+    <link rel="icon" type="image/ico" href="thumbnail.png" />
+
+    <style>
+        body{
+            background-color:#4086B6;
+            resize:both;
+        }
+
+        #HeaderDiv{ 
+            position:absolute;
+            top:0px;
+            left:0px;
+
+            max-height: 9%;
+            width: 100%;
+            overflow:auto;
+            overflow:hidden;
+
+            background-color: #960938;
+
+            box-shadow: 1px 0px 5px black;
+        }
+
+        #Logo{
+            padding-top: 5px;
+            padding-left: 20;
+        }
+
+        #SearchBar{
+            position: relative;
+            top: -36px;
+            left: 250px;
+
+            height: 37px;
+            width: 40%;
+            min-width: 20%;
+
+            border-radius: 8px;
+            border: 0px;
+            flex-grow: 1;
+
+            font-size: 12pt;
+
+            resize: both;
+
+            padding-left: 47px;
+            padding-right: 10px;
+        }
+
+        #SearchIcon{
+            position:relative;
+            top: -31px;
+            left: -245px;
+
+            object-fit:cover;
+            height:20px;
+        }
+
+        .dropdown_div {
+            display: inline-block;
+            position: relative;
+
+            float: right;
+        }
+
+        .dropdown_button {
+            background-color: transparent;
+            
+            border: none;
+            
+            cursor: pointer;
+        }
+
+        #ViewAllButton{
+            position: relative;
+            top: 0px;
+            right: 70px;
+
+            height: 40px;
+            width: 37px;
+
+            border-radius: 10px;
+        }
+
+        #UserButton{
+            position: relative;
+            top: -6px;
+            right: -30px;
+
+            height: 53px;
+            width: 50px;
+            
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+        
+        .dropdown_content {
+            display: none;
+
+            position: relative;
+            top: -5px;
+            right: -30px;
+
+            max-height: 30px;
+            width: 100%;
+
+            background-color: #f9f9f9;
+            
+            box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.3);
+        }
+
+        .dropdown_content a {
+            display: block;
+
+            font-family:Helvetica;
+            font-size: 10pt;
+
+            text-decoration: none;
+            text-align:center;
+
+            color: #000000;  
+            padding-top: 1px;    
+        }
+
+        .dropdown_content a:hover {
+            background-color: rgb(199, 236, 253); 
+        }
+
+        .dropdown_div:hover .dropdown_content {
+            display: block;
+        }
+
+        #LogoutText{
+            position:relative;
+            top:-8px;
+        }
+
+        #ViewAllIcon{
+            position:relative;
+            top:-2px;
+            /*right: 75px;
+            float:right;*/
+
+            object-fit:cover;
+            height: 30px;
+            width: 30px;
+        }
+
+        #ViewAllIcon:hover{
+            box-shadow: 0px 2px 10px 5px rgba(255, 78, 78, 0.25);
+        }
+
+        #UserIcon{
+            position:relative;
+            right: 5px;
+            /*top:-95px;
+            right: -20px;
+            float:right;*/
+        
+            border-radius: 25px;
+
+            object-fit:cover;
+            height: 50px;
+            width: 50px;
+        }
+
+        #UserIcon:hover{
+            box-shadow: 0px 3px 10px 3px rgba(238, 78, 78, 0.25);
+        }
+
+        #SideDiv{
+            position: relative;
+            top: 46.5px;
+            left: -7.5px;
+
+            height: 100%;
+            width: 200px;
+
+            background-color: #efefde;
+
+            overflow:auto;
+            overflow:hidden;
+        }
+        
+        #UploadButton{
+            position:relative;
+            top: 10px;
+            left: 10px;
+
+            height: 9%;
+            width: 150px;
+
+            padding-right: 40px;
+
+            background-color: #efefde;
+
+            border:0.4px solid rgb(166, 172, 105);
+            border-radius: 25px;
+
+            box-shadow: 1.5px 3px 3px 0.5px rgba(75, 73, 73, 0.25);
+        }
+
+        #UploadButton:hover{
+            box-shadow: 1.5px 3px 10px 3px rgba(75, 73, 73, 0.25);
+        }
+
+        #UploadText{
+            position:relative;
+            top:-22px;
+            left: 0px;
+
+            font-size: 14px;
+            color: gray;
+            font-weight: 580;
+
+            text-align:right;
+        }
+
+        #UploadIcon{
+            position:relative;
+            top:12px;
+            left: -20px;
+            /*float:right;*/
+
+            height: 27px;
+            width: 21px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="HeaderDiv">
+        <img src="Logo.png" id="Logo">
+
+        <form>
+            <input type="search" id="SearchBar" placeholder="Search">
+            <img src="Search-Gray.png" id="SearchIcon">
+        </form>
+    </div>
+
+    <div class="dropdown_div">
+        <button id="ViewAllButton" class="dropdown_button"><img src="Table-White.png" id="ViewAllIcon"></button>
+   </div>
+
+    <div class="dropdown_div">
+        <button id="UserButton" class="dropdown_button"><img src="UserIcon.png" id="UserIcon"></button>
+        <div class="dropdown_content">
+          <a href="#"><p id="LogoutText">Logout</p></a>
+        </div>
+    </div>
+
+    <div id="SideDiv">
+        <button id="UploadButton"><img src="Upload-Maroon.png" id="UploadIcon"><p id="UploadText">Upload</p></button>
+
+        <ul>
+            <li>
+
+            </li>
+        </ul>
+    </div>
+    
+</body>
+
+</html>

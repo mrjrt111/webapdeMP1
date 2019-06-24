@@ -1,10 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>KrabbyStats</title>
+    <link rel="icon" type="image/ico" href="thumbnail.png" />
+
+    <style>
+        body{
+            background-color:#4086B6;
+        }
+
+        #mainDiv{
+            width:350px;
+            margin: auto;
+        }
+
+        #logo{
+            position:relative;
+            top: 30px;
+            left:80px;
+        }
+
+        #Instruction{
+            position:relative;
+
+            top:14px;
+
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:10pt;
+            color: white;
+
+            text-align: center;
+        }
+
+        #SignInDiv{
+            position:relative;
+            top: 50px;
+
+            height: 350px;
+            width: 350px;
+            background-color: #960938;
+            
+        }
+
+        #UserIcon{
+            position: relative;
+
+            top: 20px;
+            left: 100px;
+        }
+
+        #LoginDetails{
+            position:relative;
+            top: 45px;
+            left: 85px;
+        }
+
+        input{
+            height: 40px;
+            padding-left: 15px;
+        }
+
+        #SignInButton{
+            position: relative;
+            top: 10px;
+
+            height:25px;
+            width:181px;
+
+            color:white;
+
+            background-color: #b13c65;
+            
+            border: 0px;
+        }
+
+        #SignInButton:hover{
+            background-color: #a0375b;
+            box-shadow: 1px 1px 1px 1px rgb(50, 50, 50, 0.25);
+
+            transition-timing-function: ease;
+        }
+
+
+    </style>
+
 </head>
 <body>
-$END$
+    <div id="MainDiv">
+        <img src="Logo.png" id="logo">
+
+        <p id="Instruction">
+            Sign in to continue to KrabbyStats
+        </p>
+
+        <div id="SignInDiv">
+            <img src="UserIcon.png" id="UserIcon">
+
+            <form id="LoginDetails">
+                <input type="text" placeholder="Username"> <br>
+                <input type="password" placeholder="Password"> <br>
+                <button id="SignInButton">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    
 </body>
 </html>
