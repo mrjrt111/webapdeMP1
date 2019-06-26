@@ -1,10 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>KrabbyStats</title>
+    <script src="jquery.js"></script>
+    <link rel="icon" type="image/ico" href="thumbnail.png" />
+
+    <style>
+
+        body{
+            background-color:#4086B6;
+        }
+
+        #mainDiv{
+            width:350px;
+            margin: auto;
+        }
+
+        #logo{
+            position:relative;
+            top: 30px;
+            left:80px;
+        }
+
+        #Instruction{
+            position:relative;
+
+            top:14px;
+
+            font-family: Roboto,sans-serif;
+            font-size:10pt;
+            color: white;
+
+            text-align: center;
+        }
+
+        #SignInDiv{
+            position:relative;
+            top: 50px;
+
+            height: 350px;
+            width: 350px;
+            background-color: #960938;
+            
+        }
+
+        #UserIcon{
+            position: relative;
+
+            top: 20px;
+            left: 106px;
+        }
+
+        #LoginDetails{
+            position:relative;
+            top: 45px;
+            left: 85px;
+        }
+
+        #usernameInput{
+            height: 40px;
+            padding-left: 15px;
+            width:180px;
+            font-family: Roboto,sans-serif;
+        }
+        #passwordInput{
+            height: 40px;
+            padding-left: 15px;
+            width:180px;
+            font-family: Roboto,sans-serif;
+        }
+
+        button:focus {
+            outline:0;
+        }
+        input:focus{
+            outline-color: #a0375b;
+        }
+
+        #SignInButton{
+            position: relative;
+            top: 10px;
+
+            height:25px;
+            width:180px;
+
+            color:white;
+
+            background-color: #b13c65;
+            
+            border: 0px;
+            font-family: Roboto,sans-serif;
+        }
+
+        #SignInButton:hover{
+            background-color: #a0375b;
+            box-shadow: 1px 1px 1px 1px rgb(50, 50, 50, 0.25);
+
+            transition-timing-function: ease;
+        }
+
+
+    </style>
+
 </head>
 <body>
-$END$
+    <div id="MainDiv">
+        <img src="Logo.png" id="logo">
+
+        <p id="Instruction">
+            Sign in to continue to KrabbyStats
+        </p>
+
+        <div id="SignInDiv">
+            <img src="UserIcon.png" id="UserIcon">
+
+            <form id="LoginDetails" name="LoginForm">
+                <input type="text" name="username" placeholder="Username" id="usernameInput"> <br>
+                <input type="password" name="password" placeholder="Password" id="passwordInput"> <br>
+                <button id="SignInButton" type="button">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let form = document.getElementById("LoginDetails");
+        let signIn = document.getElementById("SignInButton");
+        signIn.onclick = function(){
+            let username = form.elements.username;
+            let password = form.elements.password;
+
+            if(username.value === "admin" && password.value === "p@ssword"){
+                console.log(username.value);
+                window.location.assign("Dashboard 2.0.html")
+
+            }
+            else{
+                alert("Wrong username or password");
+            }
+        }
+
+
+    </script>
 </body>
 </html>
