@@ -8,11 +8,19 @@
 
         body{
             background-color:#4086B6;
+            display: flex;
         }
 
         #mainDiv{
             width:350px;
             margin: auto;
+            margin-top: 25px;
+        }
+
+        #krustykrab {
+            background-image: url("krabLogo.png");
+            height: 249px;
+
         }
 
         #logo{
@@ -35,12 +43,13 @@
 
         #SignInDiv{
             position:relative;
-            top: 50px;
 
-            height: 350px;
+            height: 300px;
             width: 350px;
             background-color: #960938;
-            
+
+            border-radius: 5px;
+
         }
 
         #UserIcon{
@@ -61,12 +70,17 @@
             padding-left: 15px;
             width:180px;
             font-family: Roboto,sans-serif;
+            border-radius: 5px;
+            border: 0;
+            margin-bottom: 5px;
         }
         #passwordInput{
             height: 40px;
             padding-left: 15px;
             width:180px;
             font-family: Roboto,sans-serif;
+            border-radius: 5px;
+            border: 0;
         }
 
         button:focus {
@@ -78,7 +92,7 @@
 
         #SignInButton{
             position: relative;
-            top: 10px;
+            margin-top: 20px;
 
             height:25px;
             width:180px;
@@ -88,10 +102,17 @@
             background-color: #b13c65;
             
             border: 0px;
+            border-radius: 5px;
             font-family: Roboto,sans-serif;
         }
 
         #SignInButton:hover{
+            background-color: #a0375b;
+            box-shadow: 1px 1px 1px 1px rgb(50, 50, 50, 0.25);
+
+            transition-timing-function: ease;
+        }
+        #SignInButton:focus{
             background-color: #a0375b;
             box-shadow: 1px 1px 1px 1px rgb(50, 50, 50, 0.25);
 
@@ -104,15 +125,14 @@
 </head>
 <body>
     <div id="MainDiv">
-        <img src="Logo.png" id="logo">
-
-        <p id="Instruction">
-            Sign in to continue to KrabbyStats
-        </p>
+        <div id="krustykrab"></div>
 
         <div id="SignInDiv">
-            <img src="UserIcon.png" id="UserIcon">
+            <img src="Logo.png" id="logo">
 
+            <p id="Instruction">
+                Sign in to continue to KrabbyStats
+            </p>
             <form id="LoginDetails" name="LoginForm">
                 <input type="text" name="username" placeholder="Username" id="usernameInput"> <br>
                 <input type="password" name="password" placeholder="Password" id="passwordInput"> <br>
@@ -125,18 +145,19 @@
         let form = document.getElementById("LoginDetails");
         let signIn = document.getElementById("SignInButton");
         signIn.onclick = function(){
-            let username = form.elements.username;
-            let password = form.elements.password;
+            let username = form.elements.username.value;
+            let password = form.elements.password.value;
 
-            if(username.value === "admin" && password.value === "p@ssword"){
-                console.log(username.value);
+            if(username === "admin" && password === "p@ssword"){
                 window.location.assign("Dashboard 2.0.html")
-
             }
             else{
                 alert("Wrong username or password");
+                window.location.reload();
             }
         }
+
+
 
 
     </script>
