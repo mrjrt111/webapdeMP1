@@ -1,9 +1,11 @@
 <html>
 <head>
     <title>KrabbyStats</title>
+    <script src="jquery.js"></script>
     <link rel="icon" type="image/ico" href="thumbnail.png" />
 
     <style>
+
         body{
             background-color:#4086B6;
         }
@@ -24,7 +26,7 @@
 
             top:14px;
 
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Roboto,sans-serif;
             font-size:10pt;
             color: white;
 
@@ -45,7 +47,7 @@
             position: relative;
 
             top: 20px;
-            left: 100px;
+            left: 106px;
         }
 
         #LoginDetails{
@@ -54,9 +56,24 @@
             left: 85px;
         }
 
-        input{
+        #usernameInput{
             height: 40px;
             padding-left: 15px;
+            width:180px;
+            font-family: Roboto,sans-serif;
+        }
+        #passwordInput{
+            height: 40px;
+            padding-left: 15px;
+            width:180px;
+            font-family: Roboto,sans-serif;
+        }
+
+        button:focus {
+            outline:0;
+        }
+        input:focus{
+            outline-color: #a0375b;
         }
 
         #SignInButton{
@@ -64,13 +81,14 @@
             top: 10px;
 
             height:25px;
-            width:181px;
+            width:180px;
 
             color:white;
 
             background-color: #b13c65;
             
             border: 0px;
+            font-family: Roboto,sans-serif;
         }
 
         #SignInButton:hover{
@@ -95,14 +113,18 @@
         <div id="SignInDiv">
             <img src="UserIcon.png" id="UserIcon">
 
-            <form id="LoginDetails">
-                <input type="text" placeholder="Username"> <br>
-                <input type="password" placeholder="Password"> <br>
+            <form id="LoginDetails" name="LoginForm">
+                <input type="text" name="username" placeholder="Username" id="usernameInput"> <br>
+                <input type="password" name="password" placeholder="Password" id="passwordInput"> <br>
                 <button id="SignInButton">Sign In</button>
             </form>
         </div>
     </div>
 
-    
+    <script>
+        let form = document.getElementById("LoginDetails");
+        let username = form.elements.username;
+        let password = form.elements.password;
+    </script>
 </body>
 </html>
