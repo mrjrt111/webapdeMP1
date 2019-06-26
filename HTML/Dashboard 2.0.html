@@ -15,7 +15,7 @@
             top:0px;
             left:0px;
 
-            max-height: 55px;
+            max-height: 54.5px;
             width: 100%;
             overflow:auto;
             overflow:hidden;
@@ -209,6 +209,9 @@
         button:focus {
             outline:0;
         }
+        input:focus{
+            outline: 0;
+        }
         #UploadText{
             position:relative;
             top:-22px;
@@ -256,15 +259,21 @@
     </div>
 
     <div id="SideDiv">
-        <button id="UploadButton"><img src="Upload-Maroon.png" id="UploadIcon"><p id="UploadText">Upload</p></button>
-
+        <button id="UploadButton" ><img src="Upload-Maroon.png" id="UploadIcon"><p id="UploadText">Upload</p></button>
+        <input id='fileid' type='file' accept=".json" hidden/>
         <ul>
             <li>
 
             </li>
         </ul>
     </div>
-    
+    <script>
+        //script to make upload button
+        document.getElementById('UploadButton').addEventListener('click', openDialog);
+        function openDialog() {
+            document.getElementById('fileid').click();
+        }
+    </script>
 </body>
 
 </html>
