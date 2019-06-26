@@ -116,15 +116,29 @@
             <form id="LoginDetails" name="LoginForm">
                 <input type="text" name="username" placeholder="Username" id="usernameInput"> <br>
                 <input type="password" name="password" placeholder="Password" id="passwordInput"> <br>
-                <button id="SignInButton">Sign In</button>
+                <button id="SignInButton" type="button">Sign In</button>
             </form>
         </div>
     </div>
 
     <script>
         let form = document.getElementById("LoginDetails");
-        let username = form.elements.username;
-        let password = form.elements.password;
+        let signIn = document.getElementById("SignInButton");
+        signIn.onclick = function(){
+            let username = form.elements.username;
+            let password = form.elements.password;
+
+            if(username.value === "admin" && password.value === "p@ssword"){
+                console.log(username.value);
+                window.location.assign("Dashboard 2.0.html")
+
+            }
+            else{
+                alert("Wrong username or password");
+            }
+        }
+
+
     </script>
 </body>
 </html>
