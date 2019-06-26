@@ -1,7 +1,8 @@
 <html>
 <head>
     <title>KrabbyStats</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <script src="jquery.js"></script>
+    <script src="Chart.js"></script>
     <link rel="icon" type="image/ico" href="thumbnail.png" />
 
     <style>
@@ -268,8 +269,16 @@
         </ul>
     </div>
     <script>
-        //script to make upload button
+        //test for loading file
+        $(document).ready(function(){
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                alert('The file "' + fileName +  '" has been selected.');
+            });
+        });
+        //add event listener to button
         document.getElementById('UploadButton').addEventListener('click', openDialog);
+        //button now clicks file button
         function openDialog() {
             document.getElementById('fileid').click();
         }
