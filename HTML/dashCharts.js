@@ -12,7 +12,7 @@ $(document).ready(function ()
                 '12:00', '13:00',
                 '14:00',],
             datasets: [{
-                label: 'Population',
+                label: 'Customers',
                 data: [
                     617594,
                     181045,

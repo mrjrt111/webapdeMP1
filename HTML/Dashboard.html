@@ -1,135 +1,77 @@
 <html>
-    <head>
-        <style>
+<head>
+    <title>KrabbyStats</title>
+    <script src="jquery.js"></script>
+    <script src="Chart.js"></script>
+    <script src = "Upload.js"></script>
+    <script src = "dashCharts.js"></script>
+    <link rel="icon" type="image/ico" href="thumbnail.png" />
+    <link rel="stylesheet" type="text/css" href="Dashboard.css">
+</head>
 
-          body{
-                background-color: #fff;
-                font-family: Open Sans;
-                background: #4086b6;
-                margin: 0;
-                padding: 0;
-                color:black;
-                
-            }
+<body>
+    <div id="HeaderDiv">
+        <img src="Logo.png" id="Logo">
 
-            #headerDiv{
-                position: relative;
-                background-image: linear-gradient(to top,#b41e3b ,#a01832 );
-                background-color:#4086b6;
-                color:white;
-                font-weight: normal; 
-                height: 50px;
-                margin: 0px;
-                box-shadow: 1px 0px 5px black;
-            }
+        <form>
+            <img src="Search-Gray.png" id="SearchIcon">
+            <input type="search" id="SearchBar" placeholder="Search">
+        </form>
+    </div>
 
-            #logo{
-               padding-top: 5px;
-                padding-left: 20;
-                
-            }
+    <div class="dropdown_div">
+        <button id="ViewAllButton" class="dropdown_button"><img src="Table-White.png" id="ViewAllIcon"></button>
+   </div>
 
-            #navigationList{
-                list-style-type: none;
-                 margin: 0;
-                 padding: 0;
-                 text-decoration: none;
-                
-            }
-            li{
-                display: inline;
-                padding: 8px 16px;
-                text-decoration: none;
-            
-            }
+    <div class="dropdown_div">
+        <button id="UserButton" class="dropdown_button"><img src="UserIcon.png" id="UserIcon"></button>
+        <div class="dropdown_content">
+          <a href="Login%202.0.html"><p id="LogoutText">Logout</p></a>
+        </div>
+    </div>
+    <div id ="main">
+        <div id="SideDiv">
+            <button id="UploadButton" ><img src="Upload-Maroon.png" id="UploadIcon"><p id="UploadText">Upload</p></button>
+            <input id='fileid' type='file' accept=".json" style="display: none">
+            <ul id="chartSelection">
+                <li class="selection">
+                    Chart1
+                </li>
+                <li class="selection">
+                    Chart2
+                </li>
+                <li class="selection">
+                    Chart3
+                </li>
+            </ul>
+        </div>
+        <div id = "space">
+            <div class = "container">
+                <canvas id="Chart"></canvas>
+            </div>
+        </div>
 
-            .navSelect:hover{
-                background-color: #851a2e;
-                 color: white;
-                 height: 200px;
-                
-            }
-            #navigationBar{
-                float: right;
-                padding-right: 50px;
-                padding-top:13px;
-                height: 200px;
-            
-            }
-            a{
-                text-decoration: none;
-                color: white;
-            }
-            #usernameLi{
-                font-weight: bolder;
-                
-            }
+    </div>
 
-            #orderListDiv{
-                position:fixed;
-                background-color: whitesmoke;
-                width: 25%;
-                
-            }
+    <script>
 
-            #customerListDiv{
-                text-align:justify; 
-                overflow-y: scroll;
+    </script>
 
-            }
-            #customerCounterHeadDiv{
-                color: #b41e3b;
-                text-align: center;
-                border:0.5px solid #E8EAED;
-                border-radius: 4px 4px 0px 0px;
-                
-            }
+    <script>
+        //test for loading file
+        $(document).ready(function(){
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                alert('The file "' + fileName +  '" has been selected.');
+            });
+        });
+        //add event listener to button
+        document.getElementById('UploadButton').addEventListener('click', openDialog);
+        //button now clicks file button
+        function openDialog() {
+            document.getElementById('fileid').click();
+        }
+    </script>
+</body>
 
-            .idNumDiv{
-                font-weight: bold;
-            }
-            #customerListDiv{
-                color: #060606;
-            }
-            
-        </style>
-        <title>KrabbyStats - Dashboard</title>
-        <link rel="icon" type="image/ico" href="thumbnail.png" />
-        <body>
-                <div id = "headerDiv">
-                        <img src ="Logo.png" id = "logo">
-                <div id = "navigationBar">
-                        <ul id = navigationList>
-                                <li class = "navSelect"><a href = "Dashboard.html">Dashboard</a></li>
-                                <li class = "navSelect"><a href = "Dashboard.html">Upload Data</a></li>
-                                <li class = "navSelect"><a href = "Dashboard.html">View Data</a></li>
-                                <li id = "usernameLi">Username</li>
-                                <li class = "navSelect"><a href = "Dashboard.html">Logout</a></li>
-                              </ul>
-                </div>        
-                        
-                    
-                </div>
-
-                <div id = "orderListDiv">
-                    <div id = "customerCounterHeadDiv">
-                        <b>Customer Counter</b>
-                        <br><div id = "dateHeader">As of June 14,2019</div>
-                    </div> 
-                    <div id = "customerListDiv">
-                    <ul>
-                        <li>
-                            <div class = "idNumDiv">ORDER NO: 0001 </div>
-                            <div class = "customerDiv">Fish: StarFish</div>
-                            <div class = "burgerDiv">Burger: Krabby Patty</div>
-                        </li>
-                    </ul>
-                    
-                    </div>   
-                
-
-                </div>
-
-        </body>
-    </head>
 </html>
