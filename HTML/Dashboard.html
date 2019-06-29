@@ -1,10 +1,6 @@
 <html>
 <head>
     <title>KrabbyStats</title>
-    <script src="jquery.js"></script>
-    <script src="Chart.js"></script>
-    <script src = "Upload.js"></script>
-    <script src = "dashCharts.js"></script>
     <link rel="icon" type="image/ico" href="thumbnail.png" />
     <link rel="stylesheet" type="text/css" href="Dashboard.css">
 </head>
@@ -34,14 +30,14 @@
             <button id="UploadButton" ><img src="Upload-Maroon.png" id="UploadIcon"><p id="UploadText">Upload</p></button>
             <input id='fileid' type='file' accept=".json" style="display: none">
             <ul id="chartSelection">
-                <li class="selection">
-                    Chart1
+                <li class="selection" id="timeChartButton">
+                    Time
                 </li>
-                <li class="selection">
-                    Chart2
+                <li class="selection" id="salesChartButton">
+                    Grubs
                 </li>
-                <li class="selection">
-                    Chart3
+                <li class="selection" id="speciesChartButton">
+                    Species
                 </li>
             </ul>
         </div>
@@ -53,9 +49,9 @@
 
     </div>
 
-    <script>
-
-    </script>
+    <script src="jquery.js"></script>
+    <script src="Chart.js"></script>
+    <script src = "Upload.js"></script>
 
     <script>
         //test for loading file
@@ -72,6 +68,8 @@
             document.getElementById('fileid').click();
         }
     </script>
+
+    <script src = "dashCharts.js"></script>
 </body>
 
 </html>
