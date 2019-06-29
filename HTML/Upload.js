@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
     $('input[type="file"]').change(function(){
@@ -14,11 +15,11 @@ $(document).ready(function(){
         console.log(e);
           var result = JSON.parse(e.target.result);
         }
-        
-        $.getJSON('krustykrab.json', function(json) {
-            console.log (json.sales)
-        });
 
     });
-
 });
+
+window.onload = function(){
+  $.getJSON('krustykrab.json', function (data){console.log("KrustyKrab has been loaded")});
+  
+};
