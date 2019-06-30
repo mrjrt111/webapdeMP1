@@ -5,10 +5,11 @@ $(document).ready(function () {
     $("#timeChartButton").click(loadTimeChart);
     $("#salesChartButton").click(loadSalesChart);
     $("#speciesChartButton").click(loadSpeciesChart);
-
+    let timeChart, salesChart, speciesChart;
     function loadTimeChart(){
         let chart = document.getElementById('Chart').getContext('2d');
-        let testChart = new Chart(chart, {
+        destroyCharts();
+        timeChart = new Chart(chart, {
             type: 'line',
             data: {
                 labels: ['8:00', '9:00',
@@ -58,18 +59,14 @@ $(document).ready(function () {
                 tooltips: {
                     enabled: true
                 },
-                scales:{
-                    xAxes:{
-
-                    }
-                }
             }
         });
     }
 
     function loadSalesChart() {
         let chart = document.getElementById('Chart').getContext('2d');
-        let testChart = new Chart(chart, {
+        destroyCharts();
+        salesChart = new Chart(chart, {
             type: 'bar',
             data: {
                 labels: ['Krusty Combo', 'Krusty Deluxe',
@@ -89,8 +86,8 @@ $(document).ready(function () {
                     ],
                     borderWidth:1,
                     borderColor:'#777',
-                    hoverBorderWidth:3,
-                    hoverBorderColor:'#000'
+                    hoverBorderColor:'black',
+                    hoverBorderWidth: 1,
                 }]
             },
             options: {
@@ -129,7 +126,8 @@ $(document).ready(function () {
 
     function loadSpeciesChart(){
         let chart = document.getElementById('Chart').getContext('2d');
-        let testChart = new Chart(chart, {
+        destroyCharts();
+        speciesChart = new Chart(chart, {
             type: 'bar',
             data: {
                 labels: [ 'leatherback turtle', 'salmon',
@@ -152,7 +150,7 @@ $(document).ready(function () {
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
-                    hoverBorderColor: 'white'
+                    hoverBorderColor: 'black'
                 },{
                     label: 'Krusty Deluxe',
                     data: [
@@ -169,7 +167,7 @@ $(document).ready(function () {
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
-                    hoverBorderColor: 'white'
+                    hoverBorderColor: 'black'
                 },{
                     label: 'Krabby Pattie',
                     data: [
@@ -186,13 +184,13 @@ $(document).ready(function () {
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
-                    hoverBorderColor: 'white'
+                    hoverBorderColor: 'black'
                 }]
             },
             options: {
                 title: {
                     display: true,
-                    text: 'Total Sales per Species',
+                    text: 'Sales for Each Burger per Species',
                     fontSize: 25,
                 },
                 legend: {
@@ -215,5 +213,12 @@ $(document).ready(function () {
             }
         });
     }
+    function destroyCharts(){
+        if(timeChart!=null)
+            timeChart.destroy();
+        if(salesChart!=null)
+            salesChart.destroy();
+        if(speciesChart!=null)
+            speciesChart.destroy();
+    }
 });
-
