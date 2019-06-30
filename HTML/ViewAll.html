@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>KrabbyStats</title>
+    <link rel="icon" type="image/ico" href="thumbnail.png" />
+    <link rel="stylesheet" type="text/css" href="ViewAll.css">
+</head>
+
+<body>
+    <div id="HeaderDiv">
+        <img src="Logo.png" id="Logo">
+
+        <form>
+            <img src="Search-Gray.png" id="SearchIcon">
+            <input type="search" id="SearchBar" placeholder="Search">
+        </form>
+    </div>
+
+    <div class="dropdown_div">
+        <button id="ViewAllButton" class="dropdown_button"><img src="Table-White.png" id="ViewAllIcon"></button>
+   </div>
+
+    <div class="dropdown_div">
+        <button id="UserButton" class="dropdown_button"><img src="UserIcon.png" id="UserIcon"></button>
+        <div class="dropdown_content">
+          <a href="Login.html"><p id="LogoutText">Logout</p></a>
+        </div>
+    </div>
+    <div id ="main">
+        <div id="SideDiv">
+            <button id="UploadButton" ><img src="Upload-Maroon.png" id="UploadIcon"><p id="UploadText">Upload</p></button>
+            <input id='fileid' type='file' accept=".json" style="display: none">
+            
+            <form id = dateSearch>
+                <input type = "date" id = "dateInput">
+                <input type = "submit" value = "Enter Date">
+            
+            </form>
+                
+               
+        </div>
+        <div id = "space">
+                <input type = "button" value="Prev" id = "prevButton">
+                <input type = "button" value="Next" id = "nextButton">
+            <div class = "container">
+               <table id = tableView>
+                <tr>
+                    <th>Time</th>
+                    <th>Species</th>
+                    <th>Burger</th>
+                </tr>
+
+               </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="Chart.js"></script>
+    <script src = "ViewAll.js"></script>
+
+    <script>
+        //test for loading file
+        $(document).ready(function(){
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                alert('The file "' + fileName +  '" has been selected.');
+            });
+        });
+        //add event listener to button
+        document.getElementById('UploadButton').addEventListener('click', openDialog);
+        //button now clicks file button
+        function openDialog() {
+            document.getElementById('fileid').click();
+        }
+    </script>
+
+    <script src = "dashCharts.js"></script>
+</body>
+
+</html>
