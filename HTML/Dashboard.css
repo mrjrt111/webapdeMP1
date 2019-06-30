@@ -59,6 +59,7 @@ body{
 }
 
 #Chart{
+    display: none;
     background-color: #efefde;
     border-radius: 5px;
 }

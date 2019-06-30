@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontFamily = 'Roboto';
-
     $("#timeChartButton").click(loadTimeChart);
     $("#salesChartButton").click(loadSalesChart);
     $("#speciesChartButton").click(loadSpeciesChart);
@@ -76,7 +75,7 @@ $(document).ready(function () {
                 labels: ['Krusty Combo', 'Krusty Deluxe',
                     'Krabby Pattie',],
                 datasets: [{
-                    label: 'Number sold',
+                    label: 'Total sold',
                     data: [
                         230,
                         369,
@@ -88,10 +87,10 @@ $(document).ready(function () {
                         'whitesmoke',
                         'rgba(64,134,182,0.6)'
                     ],
-                    borderWidth: 1,
-                    borderColor: '#777',
-                    hoverBorderWidth: 1,
-                    hoverBorderColor: 'white'
+                    borderWidth:1,
+                    borderColor:'#777',
+                    hoverBorderWidth:3,
+                    hoverBorderColor:'#000'
                 }]
             },
             options: {
@@ -99,6 +98,9 @@ $(document).ready(function () {
                     display: true,
                     text: 'Total Grubs Sold',
                     fontSize: 25,
+                },
+                legend:{
+                  display:false
                 },
                 layout: {
                     padding: {
@@ -128,27 +130,59 @@ $(document).ready(function () {
     function loadSpeciesChart(){
         let chart = document.getElementById('Chart').getContext('2d');
         let testChart = new Chart(chart, {
-            type: 'pie',
+            type: 'bar',
             data: {
                 labels: [ 'leatherback turtle', 'salmon',
                     "seahorse", "coral",
                     'giant clam', 'gray whale',
                     'sea lion'],
                 datasets: [{
-                    label: 'Sales',
+                    label: 'Krusty Combo',
                     data: [
-                        155,
-                        259,
-                        368,
-                        33,
-                        312,
-                        158,
-                        215
+                        21,
+                        48,
+                        93,
+                        7,
+                        42,
+                        19,
+                        93
                     ],
                     //backgroundColor:'green',
-                    backgroundColor: [
-
+                    backgroundColor:  'rgba(150, 9, 56, 0.6)',
+                    borderWidth: 1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 1,
+                    hoverBorderColor: 'white'
+                },{
+                    label: 'Krusty Deluxe',
+                    data: [
+                        35,
+                        57,
+                        86,
+                        8,
+                        71,
+                        52,
+                        145
                     ],
+                    //backgroundColor:'green',
+                    backgroundColor:  'rgba(255,255,255,0.6)',
+                    borderWidth: 1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 1,
+                    hoverBorderColor: 'white'
+                },{
+                    label: 'Krabby Pattie',
+                    data: [
+                        99,
+                        153,
+                        221,
+                        18,
+                        199,
+                        97,
+                        345
+                    ],
+                    //backgroundColor:'green',
+                    backgroundColor:  'rgba(64,134,182,0.6)',
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
@@ -177,11 +211,6 @@ $(document).ready(function () {
                 },
                 tooltips: {
                     enabled: true
-                },
-                scales:{
-                    xAxes:{
-
-                    }
                 }
             }
         });
