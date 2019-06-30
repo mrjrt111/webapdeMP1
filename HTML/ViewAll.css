@@ -25,7 +25,6 @@ body{
     padding: 0;
 }
 
-
 .selection{
     left: 0px;
     padding: 20px 20px 20px 30px;
@@ -40,6 +39,14 @@ body{
     background-color: #d1d1c0;
 }
 
+#dateSearch {
+    position:relative;
+    top: 50px;
+    left: 25px;
+    align-content: center;
+
+    
+}
 #main{
     display: flex;
     width: 100%;
@@ -54,15 +61,20 @@ body{
     width: 1000px;
     position: relative;
     z-index: -1;
-    min-width: 500px;
-    min-height: 200px;
     margin: 0 auto;
+    background-color: #efefde;
 }
 
-#Chart{
+#tableView, tr{
     background-color: #efefde;
-    border-radius: 5px;
+    
+
 }
+
+th{
+    border: 1px solid black;
+}
+
 
 #HeaderDiv{
     position:absolute;

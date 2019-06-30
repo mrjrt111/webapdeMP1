@@ -1,4 +1,5 @@
-
+var result; // jsonArray of upload file, use this to access the info
+var MainInfo;// jsonArray of main file, use this to access the info
 $(document).ready(function(){
 
     $('input[type="file"]').change(function(){
@@ -13,7 +14,7 @@ $(document).ready(function(){
   
         fr.onload = function(e) { 
         console.log(e);
-          var result = JSON.parse(e.target.result);  //result contains the JSON file info
+          result = JSON.parse(e.target.result);  //result contains the JSON array info
            appendJSONData(result, 'krustykrab.json')
         }
         
@@ -24,7 +25,11 @@ $(document).ready(function(){
 });
 
 window.onload = function(){
-  $.getJSON('krustykrab.json', function (data){console.log("KrustyKrab has been loaded")});// use data to use the JSON object
+  $.getJSON('MainInfo.json', function (data){
+    console.log("KrustyKrab has been loaded");
+    mainInfo = data; 
+    console.log (mainInfo.sales[0]) 
+  });// use data to use the JSON object
   
 };
 
