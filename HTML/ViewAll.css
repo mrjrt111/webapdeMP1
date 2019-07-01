@@ -61,7 +61,8 @@ body{
     width: 1000px;
     position: relative;
     z-index: -1;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    left: -75px;
     background-color: #efefde;
 }
 
@@ -299,4 +300,44 @@ input:focus{
 
     height: 27px;
     width: 21px;
+}
+
+#prevButton{
+    position: relative;
+    height: 23px;
+
+    top: 10px;
+    left: 15px;
+
+    border-radius: 25px;
+    border: 0;
+    background-color: #AABAF7;
+
+    color: rgb(37, 96, 134);
+    font-weight: bold;
+}
+
+#nextButton{
+    position: relative;
+    height: 23px; 
+    
+    top: 10px;
+    left: 20px;
+
+    border-radius: 25px;
+    border: 0;
+    background-color: #AABAF7;
+
+    color: rgb(37, 96, 134);
+    font-weight: bold;
+}
+
+.tableButton:hover{
+    box-shadow: 1px 2px 5px 1px rgba(125, 126, 204, 0.25);
+}
+
+#tableView{
+    position: relative;
+    top: 40px;
+    left: 5px;
 }
