@@ -6,6 +6,10 @@ var filteredData = [];
 var prevButton = document.getElementById("prevButton");
 var nextButton = document.getElementById("nextButton");
 var findDateButton = document.getElementById("findDateButton");
+var viewAllButton = document.getElementById("viewAllButton");
+var dateRange = document.getElementById("dateRange");
+var monthName = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov",  "Dec."];
+
 $(document).ready(function(){
 
     $('input[type="file"]').change(function(){
@@ -47,7 +51,7 @@ window.onload = function(){
 prevButton.addEventListener("click", prevList);
 nextButton.addEventListener("click", nextList);
 findDateButton.addEventListener("click", getDataByDay)
-
+viewAllButton.addEventListener("click", getAllData)
 
 function prevList (){
   if (firstEntry!=0){
@@ -103,6 +107,7 @@ function getAllData (){
   }
 
   getTableData(firstEntry, lastEntry);
+  dateRange.innerHTML = "All Data";
 
 }
 
@@ -113,7 +118,7 @@ function getDataByDay (){
     var chosenDate = new Date ( document.getElementById("dateInput").value);
     for (i = 0; i<mainInfo.sales.length; i++){
       jsonDateTime = new Date (mainInfo.sales[i].datetime);
-      if (chosenDate.getDate()==jsonDateTime.getDate()&&chosenDate.getMonth()==jsonDateTime.getMonth()&&chosenDate.getYear()==jsonDateTime.getYear())
+      if (chosenDate.getDate()==jsonDateTime.getDate()&&chosenDate.getMonth()==jsonDateTime.getMonth()&&chosenDate.getFullYear()==jsonDateTime.getFullYear())
       {
         filteredData.push(mainInfo.sales[i]);
       }
@@ -121,6 +126,7 @@ function getDataByDay (){
     }
     console.log(filteredData.length+ "Entries");
     getTableData(firstEntry, lastEntry);
+    dateRange.innerHTML = monthName[jsonDateTime.getMonth()]+" " + chosenDate.getDate()+ ", "+ chosenDate.getFullYear();
 }
 
 

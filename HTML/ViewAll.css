@@ -302,12 +302,12 @@ input:focus{
     width: 21px;
 }
 
-#prevButton{
+#prevButton, #nextButton, #viewAllButton{
     position: relative;
     height: 23px;
 
     top: 10px;
-    left: 15px;
+    left: 70px;
 
     border-radius: 25px;
     border: 0;
@@ -317,20 +317,6 @@ input:focus{
     font-weight: bold;
 }
 
-#nextButton{
-    position: relative;
-    height: 23px; 
-    
-    top: 10px;
-    left: 20px;
-
-    border-radius: 25px;
-    border: 0;
-    background-color: #AABAF7;
-
-    color: rgb(37, 96, 134);
-    font-weight: bold;
-}
 
 .tableButton:hover{
     box-shadow: 1px 2px 5px 1px rgba(125, 126, 204, 0.25);
