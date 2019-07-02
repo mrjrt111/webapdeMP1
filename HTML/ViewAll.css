@@ -10,7 +10,7 @@ body{
     position: absolute;
     width: 90%;
     height: 100%;
-    left: 200px;
+    left: 160px;
 }
 
 #chartSelection{
@@ -43,10 +43,9 @@ body{
     position:relative;
     top: 50px;
     left: 25px;
-    align-content: center;
-
-    
+    align-content: center; 
 }
+
 #main{
     display: flex;
     width: 100%;
@@ -62,14 +61,19 @@ body{
     position: relative;
     z-index: -1;
     /*margin: 0 auto;*/
-    left: -75px;
+    left: -105px;
     background-color: #efefde;
 }
 
 #tableView, tr{
     background-color: #efefde;
     
+}
 
+#tableView{
+    position: relative;
+    top: 100px;
+    left: 50px;
 }
 
 th{
@@ -302,12 +306,17 @@ input:focus{
     width: 21px;
 }
 
-#prevButton, #nextButton, #viewAllButton{
+#navigateButtons{
     position: relative;
-    height: 23px;
+    top: 320px;
+    left: 180px;
 
-    top: 10px;
-    left: 70px;
+    height: 50px;
+    width: 150px;
+}
+
+#prevButton, #nextButton, #allButton{
+    height: 23px;
 
     border-radius: 25px;
     border: 0;
@@ -317,6 +326,24 @@ input:focus{
     font-weight: bold;
 }
 
+#prevButton{
+    position: relative;
+    top: 15px;
+    left: 7px;
+}
+
+#nextButton{
+    position: relative;
+    top: 15px;
+    left: 12px;
+}
+
+#allButton{
+    position: relative;
+    top: 15px;
+    left: 17px;
+}
+
 
 .tableButton:hover{
     box-shadow: 1px 2px 5px 1px rgba(125, 126, 204, 0.25);
@@ -324,6 +351,15 @@ input:focus{
 
 #tableView{
     position: relative;
-    top: 40px;
+    top: 50px;
     left: 5px;
+}
+
+#dateRange{
+    position: relative;
+    top: 25px;
+    left: 68px;
+
+    font-family: Helvetica;
+    font-weight: bold;
 }
