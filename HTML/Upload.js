@@ -1,5 +1,5 @@
 var result; // jsonArray of upload file, use this to access the info
-var MainInfo;// jsonArray of main file, use this to access the info
+var mainInfo;// jsonArray of main file, use this to access the info
 $(document).ready(function(){
 
     $('input[type="file"]').change(function(){
@@ -13,13 +13,13 @@ $(document).ready(function(){
         var fr = new FileReader();
   
         fr.onload = function(e) { 
-        console.log(e);
-          result = JSON.parse(e.target.result);  //result contains the JSON array info
-           appendJSONData(result, 'krustykrab.json')
-        }
+            console.log(e);
+            mainInfo = JSON.parse(e.target.result);  //result contains the JSON array info
+            appendJSONData(result, 'krustykrab.json')
+        };
         
         fr.readAsText(files.item(0));
-        result = MainInfo;
+
 
     });
 });
