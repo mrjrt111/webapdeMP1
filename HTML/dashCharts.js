@@ -3,8 +3,8 @@ $(window).ready(function () {
     /*let bu
     for(let i = 0; i<MainInfo.sales.length;i++)
         MainInfo.sales[i] */
+
     
-   
 
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontFamily = 'Roboto';
@@ -12,25 +12,73 @@ $(window).ready(function () {
     $("#salesChartButton").click(loadSalesChart);
     $("#speciesChartButton").click(loadSpeciesChart);
     let timeChart, salesChart, speciesChart;
+
     function loadTimeChart(){
+        let datetime = new Array();
+        let time = new Array();
+        let hour8=0, hour9=0, hour10=0, hour11=0, hour12=0,
+            hour13=0, hour14=0, hour15=0, hour16=0, hour17=0;
+
+        for(let i=0; i<mainInfo.sales.length; i++)
+            datetime.push(mainInfo.sales[Object.keys(mainInfo.sales)[i]].datetime);
+        //console.log(time[0].datetime);
+        //console.log(datetime[0]);
+        //console.log(datetime.length);
+        for (let i=0; i<datetime.length; i++){
+            let string = datetime[i];
+            let result = string.split(" ");
+            //console.log(result[1]);
+            //time.push(result[1]);
+
+            if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '08:00:00') && 
+                Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '09:00:00'))
+                hour8++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '09:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '10:00:00'))
+                hour9++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '10:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '11:00:00'))
+                hour10++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '11:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '12:00:00'))
+                hour11++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '12:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '13:00:00'))
+                hour12++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '13:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '14:00:00'))
+                hour13++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '14:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '15:00:00'))
+                hour14++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '15:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '16:00:00'))
+                hour15++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '16:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '17:00:00'))
+                hour16++;
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '17:00:00') && 
+                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '18:00:00'))
+                hour17++;
+        }
+        console.log(hour8);
+        console.log(hour9);
+        console.log(hour10);
+
+        
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
         timeChart = new Chart(chart, {
             type: 'line',
             data: {
-                labels: ['8:00', '9:00',
-                    '10:00', '11:00',
-                    '12:00', '13:00',
-                    '14:00',],
+                labels: ['08:00', '09:00', '10:00', '11:00', '12:00',
+                         '13:00', '14:00', '15:00', '16:00', '17:00'
+                        ], 
                 datasets: [{
                     label: 'Customers',
                     data: [
-                        617594,
-                        181045,
-                        153060,
-                        106519,
-                        105162,
-                        95072
+                        hour8, hour9, hour10, hour11, hour12,
+                        hour13, hour14, hour15, hour16, hour17
                     ],
                     //backgroundColor:'green',
                     backgroundColor: [
