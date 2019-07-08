@@ -3,12 +3,21 @@ $(document).ready(function () {
     Chart.defaults.global.defaultFontFamily = 'Roboto';
 
     //console.log('filename: ' + fileName);
-
-    $("#timeChartButton").click(loadTimeChart);
+    let dateForm = document.getElementById("dateSearch");
+    $("#timeChartButton").click(showDateInput);
     $("#salesChartButton").click(loadSalesChart);
     $("#speciesChartButton").click(loadSpeciesChart);
     let timeChart, salesChart, speciesChart;
 
+    function showDateInput(){
+        destroyCharts();
+        dateForm.style.visibility = "visible";
+        $("#loadDateButton").click(loadTimeChart())
+    }
+
+    function hideDateInput(){
+        dateForm.style.visibility = "hidden";
+    }
     function loadTimeChart(){
         let datetime = new Array();
         let time = new Array();
@@ -114,6 +123,7 @@ $(document).ready(function () {
     }
 
     function loadSalesChart() {
+        hideDateInput();
         let totalSales = new Array();
         totalSales.push(mainInfo.burger_sales[[ 'Krusty Combo' ]]);
         totalSales.push(mainInfo.burger_sales[[ 'Krusty Deluxe' ]]);
@@ -176,6 +186,7 @@ $(document).ready(function () {
     }
 
     function loadSpeciesChart(){
+        hideDateInput();
         let krustyCombo = new Array();
         krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'leatherback turtle' ]);
         krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'salmon' ]);

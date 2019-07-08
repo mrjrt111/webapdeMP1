@@ -49,6 +49,42 @@ body{
     position: absolute;
 }
 
+#dateSearch {
+    position:relative;
+    top: 50px;
+    left: 25px;
+    align-content: center;
+    font-family: Roboto,sans-serif;
+    display: flow;
+    visibility: hidden;
+}
+
+#dateInput{
+    border-radius: 5px;
+    width: 150px;
+    border:0.4px solid rgb(166, 172, 105);
+    box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
+    margin: 5px auto;
+    padding: 5px;
+}
+
+#findDateButton{
+    width: 100px;
+    margin: 0 auto;
+    background-color: #efefde;
+    font-family: Roboto,sans-serif;
+    border:0.4px solid rgb(166, 172, 105);
+    border-radius: 25px;
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function:ease;
+    box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
+}
+
+#findDateButton:hover{
+    box-shadow: 1px 1px 5px 2px rgba(75, 73, 73, 0.25);
+}
+
 .container{
     display: flex;
     width: 1000px;
