@@ -1,4 +1,10 @@
-$(document).ready(function () {
+$(window).ready(function () {
+
+    /*let bu
+    for(let i = 0; i<MainInfo.sales.length;i++)
+        MainInfo.sales[i] */
+    
+   
 
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontFamily = 'Roboto';
@@ -64,6 +70,14 @@ $(document).ready(function () {
     }
 
     function loadSalesChart() {
+        let totalSales = new Array(mainInfo.burger_sales.length);
+        for(let i=0;i<totalSales;i++){
+            totalSales.push(mainInfo.burger_sales[i]);
+            console.log(totalSales[i]);
+        }
+        
+
+
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
         salesChart = new Chart(chart, {
@@ -73,11 +87,7 @@ $(document).ready(function () {
                     'Krabby Pattie',],
                 datasets: [{
                     label: 'Total sold',
-                    data: [
-                        230,
-                        369,
-                        901
-                    ],
+                    data: totalSales,
                     //backgroundColor:'green',
                     backgroundColor: [
                         'rgba(150, 9, 56, 0.6)',
