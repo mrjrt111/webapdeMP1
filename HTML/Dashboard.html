@@ -54,11 +54,16 @@
     <script src = "Upload.js"></script>
 
     <script>
+        var fileName = "";
         //test for loading file
         $(document).ready(function(){
             $('input[type="file"]').change(function(e){
-                var fileName = e.target.files[0].name;
+                fileName = e.target.files[0].name;
                 alert('The file "' + fileName +  '" has been selected.');
+
+                var script = document.createElement('script');
+                script.src = "dashCharts.js";
+                document.head.appendChild(script);    
             });
         });
         //add event listener to button
@@ -69,7 +74,7 @@
         }
     </script>
 
-    <script src = "dashCharts.js"></script>
+    <!--<script src = "dashCharts.js"></script>-->
 </body>
 
 </html>

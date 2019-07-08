@@ -1,13 +1,9 @@
-$(window).ready(function () {
-
-    /*let bu
-    for(let i = 0; i<MainInfo.sales.length;i++)
-        MainInfo.sales[i] */
-
-    
-
+$(document).ready(function () {   
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontFamily = 'Roboto';
+
+    //console.log('filename: ' + fileName);
+
     $("#timeChartButton").click(loadTimeChart);
     $("#salesChartButton").click(loadSalesChart);
     $("#speciesChartButton").click(loadSpeciesChart);
