@@ -7,6 +7,7 @@ var prevButton = document.getElementById("prevButton");
 var nextButton = document.getElementById("nextButton");
 var findDateButton = document.getElementById("findDateButton");
 var viewAllButton = document.getElementById("viewAllButton");
+var allButton = document.getElementById("allButton");
 var dateRange = document.getElementById("dateRange");
 var monthName = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov",  "Dec."];
 
@@ -24,8 +25,10 @@ $(document).ready(function(){
   
         fr.onload = function(e) { 
         console.log(e);
-          result = JSON.parse(e.target.result);  //result contains the JSON file info
+          mainInfo = JSON.parse(e.target.result);  //result contains the JSON file info
         console.log(result)
+            getAllData();
+
         }
         
         fr.readAsText(files.item(0));
@@ -34,7 +37,7 @@ $(document).ready(function(){
     });
 
 });
-
+/*
 window.onload = function(){
   firstEntry = 0;
   lastEntry = 9;
@@ -47,11 +50,11 @@ window.onload = function(){
   });// use data to use the JSON object
   
 };
-
+*/
 prevButton.addEventListener("click", prevList);
 nextButton.addEventListener("click", nextList);
 findDateButton.addEventListener("click", getDataByDay)
-viewAllButton.addEventListener("click", getAllData)
+allButton.addEventListener("click", getAllData)
 
 function prevList (){
   if (firstEntry!=0){
