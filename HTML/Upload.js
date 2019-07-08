@@ -19,20 +19,21 @@ $(document).ready(function(){
         }
         
         fr.readAsText(files.item(0));
-        
+        result = MainInfo;
 
     });
 });
-
+/*
 window.onload = function(){
-  $.getJSON('MainInfo.json', function (data){
+
+    $.getJSON('MainInfo.json', function (data){
     console.log("KrustyKrab has been loaded");
     mainInfo = data; 
     console.log (mainInfo.sales[0]) 
   });// use data to use the JSON object
   
 };
-
+*/
 function appendJSONData (newData, jsonFile){ //JSON Object newData, String jsonFile 
 var js = require("fs");
   fs.readFile(jsonFile, 'utf8', function readFileCallback(err, data){
