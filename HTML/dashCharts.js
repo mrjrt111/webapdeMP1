@@ -70,13 +70,10 @@ $(window).ready(function () {
     }
 
     function loadSalesChart() {
-        let totalSales = new Array(mainInfo.burger_sales.length);
-        for(let i=0;i<totalSales;i++){
-            totalSales.push(mainInfo.burger_sales[i]);
-            console.log(totalSales[i]);
-        }
-        
-
+        let totalSales = new Array();
+        totalSales.push(mainInfo.burger_sales[[ 'Krusty Combo' ]]);
+        totalSales.push(mainInfo.burger_sales[[ 'Krusty Deluxe' ]]);
+        totalSales.push(mainInfo.burger_sales[[ 'Krabby Pattie' ]]);
 
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
@@ -135,6 +132,33 @@ $(window).ready(function () {
     }
 
     function loadSpeciesChart(){
+        let krustyCombo = new Array();
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'leatherback turtle' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'salmon' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'seahorse' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'coral' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'giant clam' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'gray whale' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'sea lion' ]);
+
+        let krustyDeluxe = new Array();
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'leatherback turtle' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'salmon' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'seahorse' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'coral' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'giant clam' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'gray whale' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'sea lion' ]);
+
+        let krabbyPattie = new Array();
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'leatherback turtle' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'salmon' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'seahorse' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'coral' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'giant clam' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'gray whale' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'sea lion' ]);
+
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
         speciesChart = new Chart(chart, {
@@ -146,15 +170,7 @@ $(window).ready(function () {
                     'sea lion'],
                 datasets: [{
                     label: 'Krusty Combo',
-                    data: [
-                        21,
-                        48,
-                        93,
-                        7,
-                        42,
-                        19,
-                        93
-                    ],
+                    data: krustyCombo,
                     //backgroundColor:'green',
                     backgroundColor:  'rgba(150, 9, 56, 0.6)',
                     borderWidth: 1,
@@ -163,15 +179,7 @@ $(window).ready(function () {
                     hoverBorderColor: 'black'
                 },{
                     label: 'Krusty Deluxe',
-                    data: [
-                        35,
-                        57,
-                        86,
-                        8,
-                        71,
-                        52,
-                        145
-                    ],
+                    data:krustyDeluxe,
                     //backgroundColor:'green',
                     backgroundColor:  'rgba(255,255,255,0.6)',
                     borderWidth: 1,
@@ -180,15 +188,7 @@ $(window).ready(function () {
                     hoverBorderColor: 'black'
                 },{
                     label: 'Krabby Pattie',
-                    data: [
-                        99,
-                        153,
-                        221,
-                        18,
-                        199,
-                        97,
-                        345
-                    ],
+                    data: krabbyPattie,
                     //backgroundColor:'green',
                     backgroundColor:  'rgba(64,134,182,0.6)',
                     borderWidth: 1,
