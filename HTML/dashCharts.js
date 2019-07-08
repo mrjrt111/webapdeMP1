@@ -12,12 +12,13 @@ $(document).ready(function () {
     function showDateInput(){
         destroyCharts();
         dateForm.style.visibility = "visible";
-        $("#loadDateButton").click(loadTimeChart())
+        $("#findDateButton").click(loadTimeChart);
     }
 
     function hideDateInput(){
         dateForm.style.visibility = "hidden";
     }
+
     function loadTimeChart(){
         let datetime = new Array();
         let time = new Array();
@@ -35,34 +36,34 @@ $(document).ready(function () {
             //console.log(result[1]);
             //time.push(result[1]);
 
-            if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '08:00:00') && 
+            if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '08:00:00') &&
                 Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '09:00:00'))
                 hour8++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '09:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '09:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '10:00:00'))
                 hour9++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '10:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '10:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '11:00:00'))
                 hour10++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '11:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '11:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '12:00:00'))
                 hour11++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '12:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '12:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '13:00:00'))
                 hour12++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '13:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '13:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '14:00:00'))
                 hour13++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '14:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '14:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '15:00:00'))
                 hour14++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '15:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '15:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '16:00:00'))
                 hour15++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '16:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '16:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '17:00:00'))
                 hour16++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '17:00:00') && 
+            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '17:00:00') &&
                     Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '18:00:00'))
                 hour17++;
         }
@@ -70,7 +71,7 @@ $(document).ready(function () {
         console.log(hour9);
         console.log(hour10);
 
-        
+
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
         timeChart = new Chart(chart, {
@@ -125,10 +126,7 @@ $(document).ready(function () {
     function loadSalesChart() {
         hideDateInput();
         let totalSales = new Array();
-        totalSales.push(mainInfo.burger_sales[[ 'Krusty Combo' ]]);
-        totalSales.push(mainInfo.burger_sales[[ 'Krusty Deluxe' ]]);
-        totalSales.push(mainInfo.burger_sales[[ 'Krabby Pattie' ]]);
-
+        totalSales.push(mainInfo.burger_sales[ 'Krusty Combo' ], mainInfo.burger_sales[ 'Krusty Deluxe' ],mainInfo.burger_sales['Krabby Pattie']);
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
         salesChart = new Chart(chart, {
