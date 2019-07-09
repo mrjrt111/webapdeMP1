@@ -1,3 +1,9 @@
+var firstEntry;
+var lastEntry;
+var filteredData = [];
+var dateRange = document.getElementById("dateRange");
+var monthName = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov",  "Dec."];
+
 $(document).ready(function () {   
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontFamily = 'Roboto';
@@ -20,57 +26,40 @@ $(document).ready(function () {
     }
 
     function loadTimeChart(){
-        let datetime = new Array();
-        let time = new Array();
         let hour8=0, hour9=0, hour10=0, hour11=0, hour12=0,
             hour13=0, hour14=0, hour15=0, hour16=0, hour17=0;
 
-        for(let i=0; i<mainInfo.sales.length; i++)
-            datetime.push(mainInfo.sales[Object.keys(mainInfo.sales)[i]].datetime);
-        //console.log(time[0].datetime);
-        //console.log(datetime[0]);
-        //console.log(datetime.length);
-        for (let i=0; i<datetime.length; i++){
-            let string = datetime[i];
-            let result = string.split(" ");
-            //console.log(result[1]);
-            //time.push(result[1]);
-
-            if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '08:00:00') &&
-                Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '09:00:00'))
-                hour8++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '09:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '10:00:00'))
-                hour9++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '10:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '11:00:00'))
-                hour10++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '11:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '12:00:00'))
-                hour11++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '12:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '13:00:00'))
-                hour12++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '13:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '14:00:00'))
-                hour13++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '14:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '15:00:00'))
-                hour14++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '15:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '16:00:00'))
-                hour15++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '16:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '17:00:00'))
-                hour16++;
-            else if(Date.parse('1/1/1999 ' + result[1]) >= Date.parse('1/1/1999 ' + '17:00:00') &&
-                    Date.parse('1/1/1999 ' + result[1]) < Date.parse('1/1/1999 ' + '18:00:00'))
-                hour17++;
+        let chosenDate = new Date (document.getElementById("dateInput").value);
+        let salesFromDay = new Array()
+        for (i = 0; i<mainInfo.sales.length; i++){
+            let dateTime = new Date (mainInfo.sales[i].datetime);
+            if (chosenDate.getDate()===dateTime.getDate()&&chosenDate.getMonth()===dateTime.getMonth()&&chosenDate.getFullYear()===dateTime.getFullYear()){
+                salesFromDay.push(dateTime);
+            }
         }
-        console.log(hour8);
-        console.log(hour9);
-        console.log(hour10);
-
+        console.log(salesFromDay[0].getHours());
+        for (i=0;i<salesFromDay.length;i++){
+            if(salesFromDay[i].getHours() === 8)
+                hour8++;
+            if(salesFromDay[i].getHours() === 9)
+                hour9++;
+            if(salesFromDay[i].getHours() === 10)
+                hour10++;
+            if(salesFromDay[i].getHours() === 11)
+                hour11++;
+            if(salesFromDay[i].getHours() === 12)
+                hour12++;
+            if(salesFromDay[i].getHours() === 13)
+                hour13++;
+            if(salesFromDay[i].getHours() === 14)
+                hour14++;
+            if(salesFromDay[i].getHours() === 15)
+                hour15++;
+            if(salesFromDay[i].getHours() === 16)
+                hour16++;
+            if(salesFromDay[i].getHours() === 17)
+                hour17++;        
+        }
 
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
@@ -119,6 +108,16 @@ $(document).ready(function () {
                 tooltips: {
                     enabled: true
                 },
+                scales:{
+                    xAxes:{
+
+                    },
+                    yAxes:[{
+                        ticks:{
+                            min:0
+                        }
+                    }]
+                }
             }
         });
     }
@@ -276,6 +275,7 @@ $(document).ready(function () {
             }
         });
     }
+
     function destroyCharts(){
         if(timeChart!=null)
             timeChart.destroy();
@@ -284,4 +284,19 @@ $(document).ready(function () {
         if(speciesChart!=null)
             speciesChart.destroy();
     }
+
+    function getDataByDay (){
+        filteredData = [];
+        var chosenDate = new Date ( document.getElementById("dateInput").value);
+        for (i = 0; i<mainInfo.sales.length; i++){
+            jsonDateTime = new Date (mainInfo.sales[i].datetime);
+            if (chosenDate.getDate()==jsonDateTime.getDate()&&chosenDate.getMonth()==jsonDateTime.getMonth()&&chosenDate.getFullYear()==jsonDateTime.getFullYear()){
+              filteredData.push(mainInfo.sales[i]);
+            }
+      
+        }
+        console.log(filteredData.length + "Entries");
+        dateRange.innerHTML = monthName[jsonDateTime.getMonth()]+" " + chosenDate.getDate()+ ", "+ chosenDate.getFullYear();
+    }
+  
 });
