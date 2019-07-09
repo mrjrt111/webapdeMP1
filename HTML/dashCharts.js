@@ -4,7 +4,10 @@ var filteredData = [];
 var dateRange = document.getElementById("dateRange");
 var monthName = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov",  "Dec."];
 
-$(document).ready(function () {   
+$(document).ready(function () {
+    if(sessionStorage.getItem("data")!= null)
+        mainInfo = JSON.parse(sessionStorage.getItem('data'));
+
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontFamily = 'Roboto';
 

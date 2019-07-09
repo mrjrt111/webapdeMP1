@@ -1,9 +1,9 @@
 var result; // jsonArray of upload file, use this to access the info
 var mainInfo;// jsonArray of main file, use this to access the info
 $(document).ready(function(){
-
+    if(sessionStorage.getItem("data")!= null)
+        mainInfo = JSON.parse(sessionStorage.getItem('user'));
     $('input[type="file"]').change(function(){
-
         var files = document.getElementById('fileid').files;
         console.log(files);
         if (files.length <= 0) {
@@ -15,12 +15,12 @@ $(document).ready(function(){
         fr.onload = function(e) { 
             console.log(e);
             mainInfo = JSON.parse(e.target.result);  //result contains the JSON array info
+            sessionStorage.setItem("data",JSON.stringify(mainInfo));
+            console.log(sessionStorage.getItem("data"));
             appendJSONData(result, 'krustykrab.json')
         };
         
         fr.readAsText(files.item(0));
-
-
     });
 });
 /*

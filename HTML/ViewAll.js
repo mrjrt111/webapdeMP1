@@ -12,6 +12,8 @@ var dateRange = document.getElementById("dateRange");
 var monthName = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov",  "Dec."];
 
 $(document).ready(function(){
+    if(sessionStorage.getItem("data")!= null)
+        mainInfo = JSON.parse(sessionStorage.getItem('data'));
 
     $('input[type="file"]').change(function(){
 
@@ -26,6 +28,7 @@ $(document).ready(function(){
         fr.onload = function(e) { 
         console.log(e);
           mainInfo = JSON.parse(e.target.result);  //result contains the JSON file info
+          sessionStorage.setItem("data",JSON.stringify(mainInfo));
         console.log(result)
             getAllData();
 
