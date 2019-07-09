@@ -143,21 +143,39 @@ th{
     cursor: pointer;
 }
 
-#ViewAllButton{
+#HomeButton{
+    position: relative;
+    top: 12px;
+    /*right: 155px;*/
+    right: 70px;
+
+    height: 30px;
+    width: 32px;
+
+    border-radius: 25px;
+}
+
+#HomeButton:hover{
+    box-shadow: 0px 2px 11px 6px rgba(255, 78, 78, 0.25);
+}
+
+/*#ViewAllButton{
     position: relative;
     top: -10px;
     right: 70px;
+    
 
     height: 40px;
     width: 37px;
 
     border-radius: 10px;
-}
+}*/
 
 #UserButton{
     position: relative;
     top: 0px;
-    right: -30px;
+    right: -25px;
+    /*right: -65px;*/
 
     height: 53px;
     width: 50px;
@@ -171,7 +189,8 @@ th{
 
     position: relative;
     top: -5px;
-    right: -30px;
+    right: -23px;
+    /*right: -65px;*/
 
     max-height: 30px;
     width: 100%;
@@ -207,11 +226,19 @@ th{
     top:-8px;
 }
 
-#ViewAllIcon{
+#HomeIcon{
+    position: relative;
+    top: -7px;
+    left: -9px;
+
+    object-fit:cover;
+    height: 38px;
+    width: 38px;
+}
+
+/*#ViewAllIcon{
     position:relative;
     top: 15px;
-    /*right: 75px;
-    float:right;*/
 
     object-fit:cover;
     height: 30px;
@@ -220,7 +247,7 @@ th{
 
 #ViewAllIcon:hover{
     box-shadow: 0px 2px 10px 5px rgba(255, 78, 78, 0.25);
-}
+}*/
 
 #UserIcon{
     position:relative;
