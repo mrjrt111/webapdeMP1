@@ -36,10 +36,12 @@ $(document).ready(function(){
           mainInfo = JSON.parse(e.target.result);  //result contains the JSON file info
           sessionStorage.setItem("data",JSON.stringify(mainInfo));
         console.log(result)
+        getAllData();
 
         }
         
         fr.readAsText(files.item(0));
+       
         
 
     });
