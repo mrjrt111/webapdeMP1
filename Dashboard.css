@@ -4,27 +4,21 @@ body{
     margin: 0; height: 100%;
 }
 
-@font-face{
-    font-family: Spongebob;
-    src: url(Krabby\ Patty.ttf);
-}
-
 #space{
-    margin-top: 23px;
+    margin-top: 10px;
     display: flex;
     position: absolute;
     width: 90%;
     height: 100%;
-    left: 150px;
+    left: 200px;
 }
 
 #chartSelection{
     position: relative;
     top: 20px;
-    /*font-family: Roboto,sans-serif;*/
-    font-family: Spongebob;
+    font-family: Roboto,sans-serif;
     list-style: none;
-    /*font-weight: bolder;*/
+    font-weight: bolder;
     color: #3d3d3d;
     display: block;
     width: 100%;
@@ -33,7 +27,7 @@ body{
 
 
 .selection{
-    font-size: 14pt ;
+    font-size: 10pt ;
     left: 0px;
     padding: 20px 20px 20px 30px;
     width: 100%;
@@ -73,16 +67,13 @@ body{
     box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
     margin: 5px auto;
     padding: 5px;
-
-    font-family: Spongebob;
 }
 
 #findDateButton{
     width: 100px;
     margin: 0 auto;
     background-color: #efefde;
-    /*font-family: Roboto, sans-serif;*/
-    font-family: Spongebob;
+    font-family: Roboto,sans-serif;
     border:0.4px solid rgb(166, 172, 105);
     border-radius: 25px;
     transition-property: box-shadow;
@@ -235,8 +226,6 @@ body{
 #LogoutText{
     position:relative;
     top:-8px;
-
-    font-family: Spongebob;
 }
 
 #ViewAllIcon{
@@ -310,7 +299,6 @@ body{
     box-shadow: 1.5px 3px 10px 3px rgba(75, 73, 73, 0.25);
 
 }
-
 button:focus {
     outline:0;
 }
@@ -319,16 +307,12 @@ input:focus{
 }
 #UploadText{
     position:relative;
-    top:-28px;
-    left: 2px;
-    /*font-family: Roboto,sans-serif;
-    font-size: 14px;*/
-
-    font-family: Spongebob;
-    font-size: 18px;
-
+    top:-22px;
+    left: 0px;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
     color: gray;
-    /*font-weight: 580;*/
+    font-weight: 580;
 
     text-align:right;
 }
