@@ -1,0 +1,170 @@
+<html>
+<head>
+    <title>KrabbyStats</title>
+    <script src="jquery.js"></script>
+    <link rel="icon" type="image/ico" href="thumbnail.png" />
+
+    <style>
+        body{
+            background-color:#4086B6;
+            display: flex;
+        }
+
+        #mainDiv{
+            width:350px;
+            margin: auto;
+            margin-top: 25px;
+        }
+
+        #krustykrab {
+            background-image: url("krabLogo.png");
+            height: 249px;
+
+        }
+
+        #logo{
+            position:relative;
+            top: 30px;
+            left:80px;
+        }
+
+        #Instruction{
+            position:relative;
+
+            top:14px;
+
+            font-family: Roboto,sans-serif;
+            font-size:10pt;
+            color: white;
+
+            text-align: center;
+        }
+
+        #SignInDiv{
+            position:relative;
+
+            height: 300px;
+            width: 350px;
+            background-color: #960938;
+
+            border-radius: 5px;
+
+        }
+
+        #UserIcon{
+            position: relative;
+
+            top: 20px;
+            left: 106px;
+        }
+
+        #LoginDetails{
+            position:relative;
+            top: 45px;
+            left: 85px;
+        }
+
+        #usernameInput{
+            height: 40px;
+            padding-left: 15px;
+            width:180px;
+            font-family: Roboto,sans-serif;
+            border-radius: 5px;
+            border: 0;
+            margin-bottom: 5px;
+        }
+        #passwordInput{
+            height: 40px;
+            padding-left: 15px;
+            width:180px;
+            font-family: Roboto,sans-serif;
+            border-radius: 5px;
+            border: 0;
+        }
+
+        button:focus {
+            outline:0;
+        }
+        input:focus{
+            outline-color: #a0375b;
+        }
+
+        #SignInButton{
+            position: relative;
+            margin-top: 20px;
+
+            height:25px;
+            width:180px;
+
+            color:white;
+
+            background-color: #b13c65;
+            
+            border: 0px;
+            border-radius: 5px;
+            font-family: Roboto,sans-serif;
+        }
+
+        #SignInButton:hover{
+            background-color: #a0375b;
+            box-shadow: 1px 1px 1px 1px rgb(50, 50, 50, 0.25);
+
+            transition-timing-function: ease;
+        }
+        #SignInButton:focus{
+            background-color: #a0375b;
+            box-shadow: 1px 1px 1px 1px rgb(50, 50, 50, 0.25);
+
+            transition-timing-function: ease;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="MainDiv">
+        <div id="krustykrab"></div>
+
+        <div id="SignInDiv">
+            <img src="Logo.png" id="logo">
+
+            <p id="Instruction">
+                Sign in to continue to KrabbyStats
+            </p>
+            <form id="LoginDetails" name="LoginForm">
+                <input type="text" name="username" placeholder="Username" id="usernameInput"> <br>
+                <input type="password" name="password" placeholder="Password" id="passwordInput"> <br>
+                <button id="SignInButton" type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let form = document.getElementById("LoginDetails");
+        let signIn = document.getElementById("SignInButton");
+        $(form).submit(function (e) {
+            e.preventDefault();
+            signon();
+            });
+        signIn.onclick = signon;
+
+            function signon(){
+            let username = form.elements.username.value;
+            let password = form.elements.password.value;
+
+            if(username === "admin" && password === "p@ssword"){
+                window.location.assign("Dashboard.html")
+            }
+            else{
+                alert("Wrong username or password");
+                window.location.reload();
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>
