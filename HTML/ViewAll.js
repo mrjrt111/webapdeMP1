@@ -90,7 +90,7 @@ function nextList (){
 function getTableData(first, last){
     var table = document.getElementById("tableView");
     var dateTime;
-    table.innerHTML = "<tr><th>Time</th><th>Species</th><th>Burger</th></tr>";
+    //table.innerHTML = "<tr><th>Time</th><th>Species</th><th>Burger</th></tr>";
     
     for (i=first; i</*mainInfo.sales.length*/last+1; i++){
       dateTime = new Date (filteredData[i].datetime);
