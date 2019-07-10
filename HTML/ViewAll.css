@@ -115,7 +115,7 @@ body{
 }
 
 th{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     font-weight: 580;
     background-color: white;
 }
