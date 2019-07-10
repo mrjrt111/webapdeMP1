@@ -85,7 +85,7 @@ $(document).ready(function () {
                             'rgba(0,0,0,0.0)'
                         ],
                         borderWidth: 1,
-                        borderColor: '#777',
+                        borderColor: 'rgba(150, 9, 56, 0.6)',
                         hoverBorderWidth: 1,
                         hoverBorderColor: 'white'
                     }]
