@@ -97,7 +97,7 @@ function nextList (){
 function getTableData(first, last){
     var table = document.getElementById("tableView");
     var dateTime;
-    table.innerHTML = "<tr><th>Date</th><th>Time</th><th>Species</th><th>Burger</th></tr>";
+    table.innerHTML = "<tr><th style='background-color: 960938; color: white;'>Date</th><th style='background-color: 960938; color: white;'>Time</th><th style='background-color: 960938; color: white;'>Species</th><th style='background-color: 960938; color: white;'>Burger</th></tr>";
     
     for (i=first; i</*mainInfo.sales.length*/last+1; i++){
       dateTime = new Date (filteredData[i].datetime);
@@ -107,6 +107,8 @@ function getTableData(first, last){
       table.innerHTML+= "<tr><th>"+  monthName[dateTime.getMonth()]+" "+dateTime.getDate()+", "+ dateTime.getFullYear()+"</th><th>"+dateTime.getHours()+":0" + dateTime.getMinutes()+"</th> <th> "+filteredData[i].species+"</th> <th> "+filteredData[i].burger+"</th></tr>";
 
     }
+
+    $("#tableView").find("tr:first").css('background-color', '#960938');
 
 }
 
@@ -141,7 +143,3 @@ function getDataByDay (){
     getTableData(firstEntry, lastEntry);
     dateRange.innerHTML = monthName[jsonDateTime.getMonth()]+" " + chosenDate.getDate()+ ", "+ chosenDate.getFullYear();
 }
-
-
-
-

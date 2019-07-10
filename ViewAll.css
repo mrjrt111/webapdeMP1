@@ -4,13 +4,18 @@ body{
     margin: 0; height: 100%;
 }
 
+@font-face{
+    font-family: Spongebob;
+    src: url(Krabby\ Patty.ttf);
+}
+
 #space{
-    margin-top: 10px;
+    margin-top: 23px;
     display: flex;
     position: absolute;
     width: 90%;
     height: 100%;
-    left: 160px;
+    left: 175px;
 }
 
 #chartSelection{
@@ -46,6 +51,35 @@ body{
     align-content: center; 
 }
 
+#dateInput{
+    border-radius: 5px;
+    width: 150px;
+    border:0.4px solid rgb(166, 172, 105);
+    box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
+    margin: 5px auto;
+    padding: 5px;
+
+    font-family: Spongebob;
+}
+
+#findDateButton{
+    width: 100px;
+    margin: 0 auto;
+    background-color: #efefde;
+    /*font-family: Roboto, sans-serif;*/
+    font-family: Spongebob;
+    border:0.4px solid rgb(166, 172, 105);
+    border-radius: 25px;
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function:ease;
+    box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
+}
+
+#findDateButton:hover{
+    box-shadow: 1px 1px 5px 2px rgba(75, 73, 73, 0.25);
+}
+
 #main{
     display: flex;
     width: 100%;
@@ -63,6 +97,7 @@ body{
     /*margin: 0 auto;*/
     left: -105px;
     background-color: #efefde;
+    border-radius: 10px;
 }
 
 #tableView, tr{
@@ -72,12 +107,29 @@ body{
 
 #tableView{
     position: relative;
-    top: 100px;
-    left: 50px;
+    /*margin:0 auto;*/
+    top: 50px;
+    left:50px;
+
+    font-family: Spongebob;
 }
 
 th{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    font-weight: 580;
+    background-color: white;
+}
+
+#dateRange{
+    position: relative;
+    top: 25px;
+    left: 50px;
+
+    /*font-family: Helvetica;
+    font-weight: bold;*/
+
+    font-family: Spongebob;
+    font-weight: bold;
 }
 
 
@@ -224,6 +276,8 @@ th{
 #LogoutText{
     position:relative;
     top:-8px;
+
+    font-family: Spongebob;
 }
 
 #HomeIcon{
@@ -313,12 +367,16 @@ input:focus{
 }
 #UploadText{
     position:relative;
-    top:-22px;
+    top:-28px;
     left: 0px;
-    font-family: Roboto,sans-serif;
-    font-size: 14px;
+    /*font-family: Roboto,sans-serif;
+    font-size: 14px;*/
+
+    font-family: Spongebob;
+    font-size: 18px;
+
     color: gray;
-    font-weight: 580;
+    /*font-weight: 580;*/
 
     text-align:right;
 }
@@ -336,10 +394,10 @@ input:focus{
 #navigateButtons{
     position: relative;
     top: 320px;
-    left: 180px;
+    left: 280px;
 
     height: 50px;
-    width: 150px;
+    min-width: 150px;
 }
 
 #prevButton, #nextButton, #allButton{
@@ -350,7 +408,8 @@ input:focus{
     background-color: #AABAF7;
 
     color: rgb(37, 96, 134);
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-family: Spongebob;
 }
 
 #prevButton{
@@ -371,22 +430,6 @@ input:focus{
     left: 17px;
 }
 
-
 .tableButton:hover{
     box-shadow: 1px 2px 5px 1px rgba(125, 126, 204, 0.25);
-}
-
-#tableView{
-    position: relative;
-    top: 50px;
-    left: 5px;
-}
-
-#dateRange{
-    position: relative;
-    top: 25px;
-    left: 68px;
-
-    font-family: Helvetica;
-    font-weight: bold;
 }
