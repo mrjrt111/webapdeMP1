@@ -85,7 +85,7 @@ th{
     position:absolute;
     top:0px;
     left:0px;
-    max-height: 55px;
+    height: 55px;
     width: 100%;
     overflow:auto;
     overflow:hidden;
@@ -100,7 +100,7 @@ th{
     padding-left: 20px;
 }
 
-#SearchBar{
+/*SearchBar{
     position: relative;
     top: -36px;
     left: 250px;
@@ -127,7 +127,7 @@ th{
     left: 280px;
     height:20px;
     z-index: 999;
-}
+}*/
 
 .dropdown_div {
     position: relative;
