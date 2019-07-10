@@ -15,7 +15,8 @@ $(document).ready(function () {
     let dateForm = document.getElementById("dateSearch");
     $("#timeChartButton").click(showDateInput);
     $("#salesChartButton").click(loadSalesChart);
-    $("#speciesChartButton").click(loadSpeciesChart);
+    $("#speciesChartButton").click(loadSpeciesChart)
+    $("#speciesGrubsChartButton").click(loadTypeSpeciesChart);
     let timeChart, salesChart, speciesChart;
 
     function showDateInput(){
@@ -185,41 +186,41 @@ $(document).ready(function () {
         });
     }
 
-    function loadSpeciesChart(){
+    function loadTypeSpeciesChart() {
         hideDateInput();
         let krustyCombo = new Array();
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'leatherback turtle' ]);
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'salmon' ]);
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'seahorse' ]);
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'coral' ]);
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'giant clam' ]);
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'gray whale' ]);
-        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"][ 'sea lion' ]);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['leatherback turtle']);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['salmon']);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['seahorse']);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['coral']);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['giant clam']);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['gray whale']);
+        krustyCombo.push(mainInfo.burger_by_species["Krusty Combo"]['sea lion']);
 
         let krustyDeluxe = new Array();
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'leatherback turtle' ]);
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'salmon' ]);
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'seahorse' ]);
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'coral' ]);
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'giant clam' ]);
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'gray whale' ]);
-        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"][ 'sea lion' ]);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['leatherback turtle']);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['salmon']);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['seahorse']);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['coral']);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['giant clam']);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['gray whale']);
+        krustyDeluxe.push(mainInfo.burger_by_species["Krusty Deluxe"]['sea lion']);
 
         let krabbyPattie = new Array();
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'leatherback turtle' ]);
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'salmon' ]);
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'seahorse' ]);
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'coral' ]);
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'giant clam' ]);
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'gray whale' ]);
-        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"][ 'sea lion' ]);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['leatherback turtle']);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['salmon']);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['seahorse']);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['coral']);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['giant clam']);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['gray whale']);
+        krabbyPattie.push(mainInfo.burger_by_species["Krabby Pattie"]['sea lion']);
 
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
         speciesChart = new Chart(chart, {
             type: 'bar',
             data: {
-                labels: [ 'leatherback turtle', 'salmon',
+                labels: ['leatherback turtle', 'salmon',
                     "seahorse", "coral",
                     'giant clam', 'gray whale',
                     'sea lion'],
@@ -227,25 +228,25 @@ $(document).ready(function () {
                     label: 'Krusty Combo',
                     data: krustyCombo,
                     //backgroundColor:'green',
-                    backgroundColor:  'rgba(150, 9, 56, 0.6)',
+                    backgroundColor: 'rgba(150, 9, 56, 0.6)',
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
                     hoverBorderColor: 'black'
-                },{
+                }, {
                     label: 'Krusty Deluxe',
-                    data:krustyDeluxe,
+                    data: krustyDeluxe,
                     //backgroundColor:'green',
-                    backgroundColor:  'rgba(255,255,255,0.6)',
+                    backgroundColor: 'rgba(255,255,255,0.6)',
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
                     hoverBorderColor: 'black'
-                },{
+                }, {
                     label: 'Krabby Pattie',
                     data: krabbyPattie,
                     //backgroundColor:'green',
-                    backgroundColor:  'rgba(64,134,182,0.6)',
+                    backgroundColor: 'rgba(64,134,182,0.6)',
                     borderWidth: 1,
                     borderColor: '#777',
                     hoverBorderWidth: 1,
@@ -256,6 +257,67 @@ $(document).ready(function () {
                 title: {
                     display: true,
                     text: 'Sales for Each Burger per Species',
+                    fontSize: 25,
+                },
+                legend: {
+                    display: true,
+                    position: 'right',
+                    labels: {}
+                },
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 10,
+                        bottom: 10,
+                        top: 10
+                    },
+
+                },
+                tooltips: {
+                    enabled: true
+                }
+            }
+        });
+
+
+    }
+
+    function loadSpeciesChart() {
+        hideDateInput();
+        let speciesSales = new Array();
+        speciesSales.push(mainInfo.species_sales['leatherback turtle']);
+        speciesSales.push(mainInfo.species_sales['salmon']);
+        speciesSales.push(mainInfo.species_sales['seahorse']);
+        speciesSales.push(mainInfo.species_sales['coral']);
+        speciesSales.push(mainInfo.species_sales['giant clam']);
+        speciesSales.push(mainInfo.species_sales['gray whale']);
+        speciesSales.push(mainInfo.species_sales['sea lion']);
+
+
+        let chart = document.getElementById('Chart').getContext('2d');
+        destroyCharts();
+        speciesChart = new Chart(chart, {
+            type: 'bar',
+            data: {
+                labels: ['leatherback turtle', 'salmon',
+                    "seahorse", "coral",
+                    'giant clam', 'gray whale',
+                    'sea lion'],
+                datasets: [{
+                    label: 'Total Sold',
+                    data: speciesSales,
+                    //backgroundColor:'green',
+                    backgroundColor: 'rgba(150, 9, 56, 0.6)',
+                    borderWidth: 1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 1,
+                    hoverBorderColor: 'black'
+                } ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Total Burger Sales per Species',
                     fontSize: 25,
                 },
                 legend: {
