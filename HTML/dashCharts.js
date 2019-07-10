@@ -15,9 +15,9 @@ $(document).ready(function () {
     let dateForm = document.getElementById("dateSearch");
     $("#timeChartButton").click(showDateInput);
     $("#salesChartButton").click(loadSalesChart);
-    $("#speciesChartButton").click(loadSpeciesChart)
+    $("#speciesChartButton").click(loadSpeciesChart);
     $("#speciesGrubsChartButton").click(loadTypeSpeciesChart);
-    let timeChart, salesChart, speciesChart;
+    let timeChart, salesChart, speciesChart, totalSpeciesChart;
 
     function showDateInput(){
         destroyCharts();
@@ -41,89 +41,94 @@ $(document).ready(function () {
                 salesFromDay.push(dateTime);
             }
         }
-        console.log(salesFromDay[0].getHours());
-        for (i=0;i<salesFromDay.length;i++){
-            if(salesFromDay[i].getHours() === 8)
-                hour8++;
-            if(salesFromDay[i].getHours() === 9)
-                hour9++;
-            if(salesFromDay[i].getHours() === 10)
-                hour10++;
-            if(salesFromDay[i].getHours() === 11)
-                hour11++;
-            if(salesFromDay[i].getHours() === 12)
-                hour12++;
-            if(salesFromDay[i].getHours() === 13)
-                hour13++;
-            if(salesFromDay[i].getHours() === 14)
-                hour14++;
-            if(salesFromDay[i].getHours() === 15)
-                hour15++;
-            if(salesFromDay[i].getHours() === 16)
-                hour16++;
-            if(salesFromDay[i].getHours() === 17)
-                hour17++;        
+        if(salesFromDay[0]!=null) {
+            for (i = 0; i < salesFromDay.length; i++) {
+                if (salesFromDay[i].getHours() === 8)
+                    hour8++;
+                if (salesFromDay[i].getHours() === 9)
+                    hour9++;
+                if (salesFromDay[i].getHours() === 10)
+                    hour10++;
+                if (salesFromDay[i].getHours() === 11)
+                    hour11++;
+                if (salesFromDay[i].getHours() === 12)
+                    hour12++;
+                if (salesFromDay[i].getHours() === 13)
+                    hour13++;
+                if (salesFromDay[i].getHours() === 14)
+                    hour14++;
+                if (salesFromDay[i].getHours() === 15)
+                    hour15++;
+                if (salesFromDay[i].getHours() === 16)
+                    hour16++;
+                if (salesFromDay[i].getHours() === 17)
+                    hour17++;
+            }
+
+            let chart = document.getElementById('Chart').getContext('2d');
+            destroyCharts();
+            timeChart = new Chart(chart, {
+                type: 'line',
+                data: {
+                    labels: ['08:00', '09:00', '10:00', '11:00', '12:00',
+                        '13:00', '14:00', '15:00', '16:00', '17:00'
+                    ],
+                    datasets: [{
+                        label: 'Customers',
+                        data: [
+                            hour8, hour9, hour10, hour11, hour12,
+                            hour13, hour14, hour15, hour16, hour17
+                        ],
+                        //backgroundColor:'green',
+                        backgroundColor: [
+                            //'rgba(0,0,0,0.1)'
+                            'rgba(0,0,0,0.0)'
+                        ],
+                        borderWidth: 1,
+                        borderColor: '#777',
+                        hoverBorderWidth: 1,
+                        hoverBorderColor: 'white'
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Customers Served Over Time',
+                        fontSize: 25,
+                    },
+                    legend: {
+                        display: false,
+                        position: 'right',
+                        labels: {}
+                    },
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            bottom: 10,
+                            top: 10
+                        },
+
+                    },
+                    tooltips: {
+                        enabled: true
+                    },
+                    scales:{
+                        xAxes:{
+
+                        },
+                        yAxes:[{
+                            ticks:{
+                                min:0
+                            }
+                        }]
+                    }
+                }
+            });
+        } else{
+           alert("No sales for that day");
         }
 
-        let chart = document.getElementById('Chart').getContext('2d');
-        destroyCharts();
-        timeChart = new Chart(chart, {
-            type: 'line',
-            data: {
-                labels: ['08:00', '09:00', '10:00', '11:00', '12:00',
-                         '13:00', '14:00', '15:00', '16:00', '17:00'
-                        ], 
-                datasets: [{
-                    label: 'Customers',
-                    data: [
-                        hour8, hour9, hour10, hour11, hour12,
-                        hour13, hour14, hour15, hour16, hour17
-                    ],
-                    //backgroundColor:'green',
-                    backgroundColor: [
-
-                    ],
-                    borderWidth: 1,
-                    borderColor: '#777',
-                    hoverBorderWidth: 1,
-                    hoverBorderColor: 'white'
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Customers Served Over Time',
-                    fontSize: 25,
-                },
-                legend: {
-                    display: true,
-                    position: 'right',
-                    labels: {}
-                },
-                layout: {
-                    padding: {
-                        left: 10,
-                        right: 10,
-                        bottom: 10,
-                        top: 10
-                    },
-
-                },
-                tooltips: {
-                    enabled: true
-                },
-                scales:{
-                    xAxes:{
-
-                    },
-                    yAxes:[{
-                        ticks:{
-                            min:0
-                        }
-                    }]
-                }
-            }
-        });
     }
 
     function loadSalesChart() {
@@ -296,7 +301,7 @@ $(document).ready(function () {
 
         let chart = document.getElementById('Chart').getContext('2d');
         destroyCharts();
-        speciesChart = new Chart(chart, {
+        totalSpeciesChart = new Chart(chart, {
             type: 'bar',
             data: {
                 labels: ['leatherback turtle', 'salmon',
@@ -321,7 +326,7 @@ $(document).ready(function () {
                     fontSize: 25,
                 },
                 legend: {
-                    display: true,
+                    display: false,
                     position: 'right',
                     labels: {}
                 },
@@ -346,6 +351,8 @@ $(document).ready(function () {
             timeChart.destroy();
         if(salesChart!=null)
             salesChart.destroy();
+        if(totalSpeciesChart!=null)
+            totalSpeciesChart.destroy();
         if(speciesChart!=null)
             speciesChart.destroy();
     }
