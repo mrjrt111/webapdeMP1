@@ -12,8 +12,14 @@ var dateRange = document.getElementById("dateRange");
 var monthName = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov",  "Dec."];
 
 $(document).ready(function(){
-    if(sessionStorage.getItem("data")!= null)
-        mainInfo = JSON.parse(sessionStorage.getItem('data'));
+    if(sessionStorage.getItem("data")!= null){
+      mainInfo = JSON.parse(sessionStorage.getItem('data'));
+      getAllData();
+    }
+    else{
+      dateRange.innerHTML = "No Data. Please upload a JSON file"
+    }
+        
 
     $('input[type="file"]').change(function(){
 
@@ -30,11 +36,12 @@ $(document).ready(function(){
           mainInfo = JSON.parse(e.target.result);  //result contains the JSON file info
           sessionStorage.setItem("data",JSON.stringify(mainInfo));
         console.log(result)
-            getAllData();
+        getAllData();
 
         }
         
         fr.readAsText(files.item(0));
+       
         
 
     });
@@ -95,9 +102,9 @@ function getTableData(first, last){
     for (i=first; i</*mainInfo.sales.length*/last+1; i++){
       dateTime = new Date (filteredData[i].datetime);
       if (dateTime.getMinutes()>=10)
-          table.innerHTML+= "<tr><th>"+dateTime.getHours()+":" + dateTime.getMinutes()+"</th> <th> "+filteredData[i].species+"</th> <th> "+filteredData[i].burger+"</th></tr>";
+          table.innerHTML+= "<tr><th>"+  monthName[dateTime.getMonth()]+" "+dateTime.getDate()+", "+ dateTime.getFullYear()+"</th><th>"+dateTime.getHours()+":" + dateTime.getMinutes()+"</th> <th> "+filteredData[i].species+"</th> <th> "+filteredData[i].burger+"</th></tr>";
       else
-      table.innerHTML+= "<tr><th>"+dateTime.getHours()+":0" + dateTime.getMinutes()+"</th> <th> "+filteredData[i].species+"</th> <th> "+filteredData[i].burger+"</th></tr>";
+      table.innerHTML+= "<tr><th>"+  monthName[dateTime.getMonth()]+" "+dateTime.getDate()+", "+ dateTime.getFullYear()+"</th><th>"+dateTime.getHours()+":0" + dateTime.getMinutes()+"</th> <th> "+filteredData[i].species+"</th> <th> "+filteredData[i].burger+"</th></tr>";
 
     }
 
