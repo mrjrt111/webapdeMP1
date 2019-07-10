@@ -31,13 +31,16 @@
             <input id='fileid' type='file' accept=".json" style="display: none">
             <ul id="chartSelection">
                 <li class="selection" id="timeChartButton">
-                    Time
+                    Sales per Hour
                 </li>
                 <li class="selection" id="salesChartButton">
-                    Grubs
+                    Total Burger Sales
                 </li>
                 <li class="selection" id="speciesChartButton">
-                    Species
+                    Sales by Species
+                </li>
+                <li class="selection" id="speciesGrubsChartButton">
+                    Sales Type per Species
                 </li>
             </ul>
             <form id = dateSearch>
@@ -66,10 +69,15 @@
                 fileName = e.target.files[0].name;
                 alert('The file "' + fileName +  '" has been selected.');
 
-                var script = document.createElement('script');
+                let script = document.createElement('script');
                 script.src = "dashCharts.js";
                 document.head.appendChild(script);    
             });
+            if(sessionStorage.getItem("data")!=null){
+                let script = document.createElement('script');
+                script.src = "dashCharts.js";
+                document.head.appendChild(script);
+            }
         });
         //add event listener to button
         document.getElementById('UploadButton').addEventListener('click', openDialog);
