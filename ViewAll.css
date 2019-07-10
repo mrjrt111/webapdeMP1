@@ -1,0 +1,435 @@
+body{
+    background-color:#4086B6;
+    resize:both;
+    margin: 0; height: 100%;
+}
+
+@font-face{
+    font-family: Spongebob;
+    src: url(Krabby\ Patty.ttf);
+}
+
+#space{
+    margin-top: 23px;
+    display: flex;
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    left: 175px;
+}
+
+#chartSelection{
+    position: relative;
+    top: 20px;
+    font-family: Roboto,sans-serif;
+    list-style: none;
+    font-weight: bolder;
+    color: #3d3d3d;
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+.selection{
+    left: 0px;
+    padding: 20px 20px 20px 30px;
+    width: 100%;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function:ease;
+    user-select: none;
+}
+
+.selection:hover{
+    background-color: #d1d1c0;
+}
+
+#dateSearch {
+    position:relative;
+    top: 50px;
+    left: 25px;
+    align-content: center; 
+}
+
+#dateInput{
+    border-radius: 5px;
+    width: 150px;
+    border:0.4px solid rgb(166, 172, 105);
+    box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
+    margin: 5px auto;
+    padding: 5px;
+
+    font-family: Spongebob;
+}
+
+#findDateButton{
+    width: 100px;
+    margin: 0 auto;
+    background-color: #efefde;
+    /*font-family: Roboto, sans-serif;*/
+    font-family: Spongebob;
+    border:0.4px solid rgb(166, 172, 105);
+    border-radius: 25px;
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function:ease;
+    box-shadow: 1px 1px 1px 0.5px rgba(75, 73, 73, 0.25);
+}
+
+#findDateButton:hover{
+    box-shadow: 1px 1px 5px 2px rgba(75, 73, 73, 0.25);
+}
+
+#main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 55px;
+    flex-direction: row;
+    position: absolute;
+}
+
+.container{
+    display: flex;
+    width: 1000px;
+    position: relative;
+    z-index: -1;
+    /*margin: 0 auto;*/
+    left: -105px;
+    background-color: #efefde;
+    border-radius: 10px;
+}
+
+#tableView, tr{
+    background-color: #efefde;
+    
+}
+
+#tableView{
+    position: relative;
+    /*margin:0 auto;*/
+    top: 50px;
+    left:50px;
+
+    font-family: Spongebob;
+}
+
+th{
+    /*border: 1px solid black;*/
+    font-weight: 580;
+    background-color: white;
+}
+
+#dateRange{
+    position: relative;
+    top: 25px;
+    left: 50px;
+
+    /*font-family: Helvetica;
+    font-weight: bold;*/
+
+    font-family: Spongebob;
+    font-weight: bold;
+}
+
+
+#HeaderDiv{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height: 55px;
+    width: 100%;
+    overflow:auto;
+    overflow:hidden;
+
+    background-color: #960938;
+
+    box-shadow: 1px 0px 5px black;
+}
+
+#Logo{
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+/*SearchBar{
+    position: relative;
+    top: -36px;
+    left: 250px;
+
+    height: 37px;
+    width: 40%;
+    min-width: 20%;
+
+    border-radius: 8px;
+    border: 0px;
+    flex-grow: 1;
+
+    font-size: 12pt;
+
+    resize: both;
+
+    padding-left: 47px;
+    padding-right: 10px;
+}
+
+#SearchIcon{
+    position: relative;
+    top: -31px;
+    left: 280px;
+    height:20px;
+    z-index: 999;
+}*/
+
+.dropdown_div {
+    position: relative;
+    right: 10px;
+    float: right;
+}
+
+.dropdown_button {
+    background-color: transparent;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+#HomeButton{
+    position: relative;
+    top: 12px;
+    /*right: 155px;*/
+    right: 70px;
+
+    height: 30px;
+    width: 32px;
+
+    border-radius: 25px;
+}
+
+#HomeButton:hover{
+    box-shadow: 0px 2px 11px 6px rgba(255, 78, 78, 0.25);
+}
+
+/*#ViewAllButton{
+    position: relative;
+    top: -10px;
+    right: 70px;
+    
+
+    height: 40px;
+    width: 37px;
+
+    border-radius: 10px;
+}*/
+
+#UserButton{
+    position: relative;
+    top: 0px;
+    right: -25px;
+    /*right: -65px;*/
+
+    height: 53px;
+    width: 50px;
+
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.dropdown_content {
+    display: none;
+
+    position: relative;
+    top: -5px;
+    right: -23px;
+    /*right: -65px;*/
+
+    max-height: 30px;
+    width: 100%;
+
+    background-color: #f9f9f9;
+
+    box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.3);
+}
+
+.dropdown_content a {
+    display: block;
+
+    font-family:Roboto,sans-serif;
+    font-size: 10pt;
+
+    text-decoration: none;
+    text-align:center;
+
+    color: #000000;
+    padding-top: 1px;
+}
+
+.dropdown_content a:hover {
+    background-color: rgb(199, 236, 253);
+}
+
+.dropdown_div:hover .dropdown_content {
+    display: block;
+}
+
+#LogoutText{
+    position:relative;
+    top:-8px;
+
+    font-family: Spongebob;
+}
+
+#HomeIcon{
+    position: relative;
+    top: -7px;
+    left: -9px;
+
+    object-fit:cover;
+    height: 38px;
+    width: 38px;
+}
+
+/*#ViewAllIcon{
+    position:relative;
+    top: 15px;
+
+    object-fit:cover;
+    height: 30px;
+    width: 30px;
+}
+
+#ViewAllIcon:hover{
+    box-shadow: 0px 2px 10px 5px rgba(255, 78, 78, 0.25);
+}*/
+
+#UserIcon{
+    position:relative;
+    right: 5px;
+    /*top:-95px;
+    right: -20px;
+    float:right;*/
+
+    border-radius: 25px;
+
+    object-fit:cover;
+    height: 50px;
+    width: 50px;
+}
+
+#UserIcon:hover{
+    box-shadow: 0px 3px 10px 3px rgba(238, 78, 78, 0.25);
+}
+
+#SideDiv{
+    position: absolute;
+
+    left: -7.5px;
+
+    height: 100%;
+    width: 200px;
+    box-shadow: 0px 3px 3px 3px rgba(24, 24, 24, 0.25);
+    background-color: #efefde;
+
+    overflow:auto;
+    overflow:hidden;
+}
+
+#UploadButton{
+    position:relative;
+    top: 10px;
+    left: 25px;
+
+    height: 50px;
+    width: 150px;
+
+    padding-right: 40px;
+
+    background-color: #efefde;
+
+    border:0.4px solid rgb(166, 172, 105);
+    border-radius: 25px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function:ease;
+    box-shadow: 1.5px 3px 3px 0.5px rgba(75, 73, 73, 0.25);
+}
+
+#UploadButton:hover{
+    box-shadow: 1.5px 3px 10px 3px rgba(75, 73, 73, 0.25);
+
+}
+button:focus {
+    outline:0;
+}
+input:focus{
+    outline: 0;
+}
+#UploadText{
+    position:relative;
+    top:-28px;
+    left: 0px;
+    /*font-family: Roboto,sans-serif;
+    font-size: 14px;*/
+
+    font-family: Spongebob;
+    font-size: 18px;
+
+    color: gray;
+    /*font-weight: 580;*/
+
+    text-align:right;
+}
+
+#UploadIcon{
+    position:relative;
+    top:12px;
+    left: -20px;
+    /*float:right;*/
+
+    height: 27px;
+    width: 21px;
+}
+
+#navigateButtons{
+    position: relative;
+    top: 320px;
+    left: 280px;
+
+    height: 50px;
+    min-width: 150px;
+}
+
+#prevButton, #nextButton, #allButton{
+    height: 23px;
+
+    border-radius: 25px;
+    border: 0;
+    background-color: #AABAF7;
+
+    color: rgb(37, 96, 134);
+    /*font-weight: bold;*/
+    font-family: Spongebob;
+}
+
+#prevButton{
+    position: relative;
+    top: 15px;
+    left: 7px;
+}
+
+#nextButton{
+    position: relative;
+    top: 15px;
+    left: 12px;
+}
+
+#allButton{
+    position: relative;
+    top: 15px;
+    left: 17px;
+}
+
+.tableButton:hover{
+    box-shadow: 1px 2px 5px 1px rgba(125, 126, 204, 0.25);
+}
