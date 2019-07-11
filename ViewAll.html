@@ -82,6 +82,12 @@
         function openDialog() {
             document.getElementById('fileid').click();
         }
+        let logout = document.getElementByID("LogoutText");
+        logout.onclick = signout;
+        
+        function signout(){
+            sessionStorage.clear();
+        }
     </script>
 
     <script src = "dashCharts.js"></script>
